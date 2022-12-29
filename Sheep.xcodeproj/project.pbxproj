@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41B221AC295DB6B400B55487 /* SheepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221AB295DB6B400B55487 /* SheepApp.swift */; };
+		41B221AE295DB6B400B55487 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221AD295DB6B400B55487 /* ContentView.swift */; };
+		41B221B0295DB6B600B55487 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B221AF295DB6B600B55487 /* Assets.xcassets */; };
+		41B221B3295DB6B600B55487 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41B221B2295DB6B600B55487 /* Preview Assets.xcassets */; };
+		41B221B5295DB6B600B55487 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221B4295DB6B600B55487 /* Persistence.swift */; };
+		41B221B8295DB6B600B55487 /* Sheep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41B221B6295DB6B600B55487 /* Sheep.xcdatamodeld */; };
+		41B221C3295DB6B700B55487 /* SheepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221C2295DB6B700B55487 /* SheepTests.swift */; };
+		41B221CD295DB6B700B55487 /* SheepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221CC295DB6B700B55487 /* SheepUITests.swift */; };
+		41B221CF295DB6B700B55487 /* SheepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221CE295DB6B700B55487 /* SheepUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41B221BF295DB6B700B55487 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41B221A0295DB6B400B55487 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41B221A7295DB6B400B55487;
+			remoteInfo = Sheep;
+		};
+		41B221C9295DB6B700B55487 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41B221A0295DB6B400B55487 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41B221A7295DB6B400B55487;
+			remoteInfo = Sheep;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		41B221A8295DB6B400B55487 /* Sheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B221AB295DB6B400B55487 /* SheepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepApp.swift; sourceTree = "<group>"; };
+		41B221AD295DB6B400B55487 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		41B221AF295DB6B600B55487 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41B221B2295DB6B600B55487 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		41B221B4295DB6B600B55487 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		41B221B7295DB6B600B55487 /* Sheep.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sheep.xcdatamodel; sourceTree = "<group>"; };
+		41B221B9295DB6B600B55487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41B221BE295DB6B700B55487 /* SheepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B221C2295DB6B700B55487 /* SheepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepTests.swift; sourceTree = "<group>"; };
+		41B221C8295DB6B700B55487 /* SheepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SheepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41B221CC295DB6B700B55487 /* SheepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepUITests.swift; sourceTree = "<group>"; };
+		41B221CE295DB6B700B55487 /* SheepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41B221A5295DB6B400B55487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221BB295DB6B700B55487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221C5295DB6B700B55487 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41B2219F295DB6B400B55487 = {
+			isa = PBXGroup;
+			children = (
+				41B221AA295DB6B400B55487 /* Sheep */,
+				41B221C1295DB6B700B55487 /* SheepTests */,
+				41B221CB295DB6B700B55487 /* SheepUITests */,
+				41B221A9295DB6B400B55487 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		41B221A9295DB6B400B55487 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41B221A8295DB6B400B55487 /* Sheep.app */,
+				41B221BE295DB6B700B55487 /* SheepTests.xctest */,
+				41B221C8295DB6B700B55487 /* SheepUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41B221AA295DB6B400B55487 /* Sheep */ = {
+			isa = PBXGroup;
+			children = (
+				41B221AB295DB6B400B55487 /* SheepApp.swift */,
+				41B221AD295DB6B400B55487 /* ContentView.swift */,
+				41B221AF295DB6B600B55487 /* Assets.xcassets */,
+				41B221B4295DB6B600B55487 /* Persistence.swift */,
+				41B221B9295DB6B600B55487 /* Info.plist */,
+				41B221B6295DB6B600B55487 /* Sheep.xcdatamodeld */,
+				41B221B1295DB6B600B55487 /* Preview Content */,
+			);
+			path = Sheep;
+			sourceTree = "<group>";
+		};
+		41B221B1295DB6B600B55487 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				41B221B2295DB6B600B55487 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		41B221C1295DB6B700B55487 /* SheepTests */ = {
+			isa = PBXGroup;
+			children = (
+				41B221C2295DB6B700B55487 /* SheepTests.swift */,
+			);
+			path = SheepTests;
+			sourceTree = "<group>";
+		};
+		41B221CB295DB6B700B55487 /* SheepUITests */ = {
+			isa = PBXGroup;
+			children = (
+				41B221CC295DB6B700B55487 /* SheepUITests.swift */,
+				41B221CE295DB6B700B55487 /* SheepUITestsLaunchTests.swift */,
+			);
+			path = SheepUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41B221A7295DB6B400B55487 /* Sheep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41B221D2295DB6B700B55487 /* Build configuration list for PBXNativeTarget "Sheep" */;
+			buildPhases = (
+				41B221A4295DB6B400B55487 /* Sources */,
+				41B221A5295DB6B400B55487 /* Frameworks */,
+				41B221A6295DB6B400B55487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sheep;
+			productName = Sheep;
+			productReference = 41B221A8295DB6B400B55487 /* Sheep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41B221BD295DB6B700B55487 /* SheepTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41B221D5295DB6B700B55487 /* Build configuration list for PBXNativeTarget "SheepTests" */;
+			buildPhases = (
+				41B221BA295DB6B700B55487 /* Sources */,
+				41B221BB295DB6B700B55487 /* Frameworks */,
+				41B221BC295DB6B700B55487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41B221C0295DB6B700B55487 /* PBXTargetDependency */,
+			);
+			name = SheepTests;
+			productName = SheepTests;
+			productReference = 41B221BE295DB6B700B55487 /* SheepTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		41B221C7295DB6B700B55487 /* SheepUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41B221D8295DB6B700B55487 /* Build configuration list for PBXNativeTarget "SheepUITests" */;
+			buildPhases = (
+				41B221C4295DB6B700B55487 /* Sources */,
+				41B221C5295DB6B700B55487 /* Frameworks */,
+				41B221C6295DB6B700B55487 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41B221CA295DB6B700B55487 /* PBXTargetDependency */,
+			);
+			name = SheepUITests;
+			productName = SheepUITests;
+			productReference = 41B221C8295DB6B700B55487 /* SheepUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41B221A0295DB6B400B55487 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					41B221A7295DB6B400B55487 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					41B221BD295DB6B700B55487 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 41B221A7295DB6B400B55487;
+					};
+					41B221C7295DB6B700B55487 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 41B221A7295DB6B400B55487;
+					};
+				};
+			};
+			buildConfigurationList = 41B221A3295DB6B400B55487 /* Build configuration list for PBXProject "Sheep" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41B2219F295DB6B400B55487;
+			productRefGroup = 41B221A9295DB6B400B55487 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41B221A7295DB6B400B55487 /* Sheep */,
+				41B221BD295DB6B700B55487 /* SheepTests */,
+				41B221C7295DB6B700B55487 /* SheepUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41B221A6295DB6B400B55487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41B221B3295DB6B600B55487 /* Preview Assets.xcassets in Resources */,
+				41B221B0295DB6B600B55487 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221BC295DB6B700B55487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221C6295DB6B700B55487 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41B221A4295DB6B400B55487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41B221B5295DB6B600B55487 /* Persistence.swift in Sources */,
+				41B221AE295DB6B400B55487 /* ContentView.swift in Sources */,
+				41B221AC295DB6B400B55487 /* SheepApp.swift in Sources */,
+				41B221B8295DB6B600B55487 /* Sheep.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221BA295DB6B700B55487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41B221C3295DB6B700B55487 /* SheepTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41B221C4295DB6B700B55487 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41B221CF295DB6B700B55487 /* SheepUITestsLaunchTests.swift in Sources */,
+				41B221CD295DB6B700B55487 /* SheepUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41B221C0295DB6B700B55487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41B221A7295DB6B400B55487 /* Sheep */;
+			targetProxy = 41B221BF295DB6B700B55487 /* PBXContainerItemProxy */;
+		};
+		41B221CA295DB6B700B55487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41B221A7295DB6B400B55487 /* Sheep */;
+			targetProxy = 41B221C9295DB6B700B55487 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		41B221D0295DB6B700B55487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		41B221D1295DB6B700B55487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41B221D3295DB6B700B55487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		41B221D4295DB6B700B55487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		41B221D6295DB6B700B55487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.SheepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sheep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sheep";
+			};
+			name = Debug;
+		};
+		41B221D7295DB6B700B55487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.SheepTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sheep.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sheep";
+			};
+			name = Release;
+		};
+		41B221D9295DB6B700B55487 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.SheepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sheep;
+			};
+			name = Debug;
+		};
+		41B221DA295DB6B700B55487 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HEUZ3URRQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.SheepUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sheep;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41B221A3295DB6B400B55487 /* Build configuration list for PBXProject "Sheep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41B221D0295DB6B700B55487 /* Debug */,
+				41B221D1295DB6B700B55487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41B221D2295DB6B700B55487 /* Build configuration list for PBXNativeTarget "Sheep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41B221D3295DB6B700B55487 /* Debug */,
+				41B221D4295DB6B700B55487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41B221D5295DB6B700B55487 /* Build configuration list for PBXNativeTarget "SheepTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41B221D6295DB6B700B55487 /* Debug */,
+				41B221D7295DB6B700B55487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41B221D8295DB6B700B55487 /* Build configuration list for PBXNativeTarget "SheepUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41B221D9295DB6B700B55487 /* Debug */,
+				41B221DA295DB6B700B55487 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41B221B6295DB6B600B55487 /* Sheep.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41B221B7295DB6B600B55487 /* Sheep.xcdatamodel */,
+			);
+			currentVersion = 41B221B7295DB6B600B55487 /* Sheep.xcdatamodel */;
+			path = Sheep.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 41B221A0295DB6B400B55487 /* Project object */;
+}
