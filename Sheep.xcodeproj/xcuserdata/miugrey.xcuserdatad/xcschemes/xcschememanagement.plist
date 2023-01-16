@@ -7,7 +7,25 @@
 		<key>Sheep.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>41B221A7295DB6B400B55487</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41B221BD295DB6B700B55487</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>41B221C7295DB6B700B55487</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
