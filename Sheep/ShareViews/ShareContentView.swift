@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ScreenshotableView
+import ActivityView
 import StoreKit
 
 struct ShareContentView<Content: View>: View {
@@ -14,6 +15,8 @@ struct ShareContentView<Content: View>: View {
     @State private var screenImage: ScreenImage?
     @State var share = false
     @State private var showSheet = false
+    @State private var item: ActivityItem?
+    
     let viewToShot: Content
     let title: String
     var deviceHeight = UIScreen.main.bounds.height
@@ -44,8 +47,8 @@ struct ShareContentView<Content: View>: View {
                     share = false
                     showSheet = true
                     if screenImage?.image != nil {
-                        save(img: screenImage!.image, title: title)
-                        share(img: screenImage!.image, title: title)
+                        save(img: screenImage!.image)
+                        item = ActivityItem(items: screenImage!.image)
                     }
                 }) {
                     viewToShot
@@ -69,12 +72,11 @@ struct ShareContentView<Content: View>: View {
                                 Text("取消")
                                     .fontWeight(.medium)
                                     .frame(width: deviceWidth/3, height: 60)
-                                    .background(Color("BGColor"))
+                                    .background(.thinMaterial)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
                             
                             Button {
-                                self.presentationMode.wrappedValue.dismiss()
                                 share = true
                             } label: {
                                 Text("保存并分享")
@@ -84,6 +86,9 @@ struct ShareContentView<Content: View>: View {
                                     .background(Color("AccentColor"))
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
+                            .activitySheet($item, onComplete: {_,_,_,_ in 
+                                self.presentationMode.wrappedValue.dismiss()
+                            })
                         }
                     }
                     .padding(.bottom, deviceHeight/15)
@@ -111,23 +116,24 @@ struct ShareContentView<Content: View>: View {
         }
     }
     
-    func save(img: UIImage, title: String) {
+    func save(img: UIImage) {
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: img)
     }
     
-    
-    func share(img:UIImage, title:String) {
-        let fileManager = FileManager.default
-        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
-        let filePath = "\(rootPath)/\(title).jpg"
-        let imageData = img.jpegData(compressionQuality: 0.8)
-        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
-        let url:URL = URL.init(fileURLWithPath: filePath)
-        let av = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController!.present(av, animated: true, completion: nil)
-        //RandomRate(input: CGFloat.random(in: 0...35))
-    }
+//
+//    func share(img:UIImage, title:String) {
+//        let fileManager = FileManager.default
+//        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+//        let filePath = "\(rootPath)/\(title).jpg"
+//        let imageData = img.jpegData(compressionQuality: 0.8)
+//        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
+//        let url:URL = URL.init(fileURLWithPath: filePath)
+//        let av = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+//        UIApplication.shared.windows.first?.rootViewController!.present(av, animated: true, completion: nil)
+//        //RandomRate(input: CGFloat.random(in: 0...35))
+//    }
+//
 }
 
 struct ShareContentView_Previews: PreviewProvider {

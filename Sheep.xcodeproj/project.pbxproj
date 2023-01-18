@@ -15,6 +15,7 @@
 		41434A0C29632AB300ADAC31 /* AddEditTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41434A0629632AB300ADAC31 /* AddEditTodoView.swift */; };
 		41434A0D29632AB300ADAC31 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41434A0729632AB300ADAC31 /* TodoListView.swift */; };
 		41434A0E29632AB300ADAC31 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41434A0829632AB300ADAC31 /* ListItemView.swift */; };
+		4160E3AC29783E260000F4CA /* ActivityView in Frameworks */ = {isa = PBXBuildFile; productRef = 4160E3AB29783E260000F4CA /* ActivityView */; };
 		416EE110296B2FA4007C9CB7 /* NoSheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE10F296B2FA4007C9CB7 /* NoSheepShareView.swift */; };
 		416EE112296B2FDF007C9CB7 /* SheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE111296B2FDF007C9CB7 /* SheepShareView.swift */; };
 		416EE114296B2FF0007C9CB7 /* FakeSheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE113296B2FF0007C9CB7 /* FakeSheepShareView.swift */; };
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4160E3AC29783E260000F4CA /* ActivityView in Frameworks */,
 				41AE4A022975441E00A206C5 /* WrappingStack in Frameworks */,
 				2BF359314F7B720BAA22E79D /* libPods-Sheep.a in Frameworks */,
 				41BDFB582973130D00859643 /* ScreenshotableView in Frameworks */,
@@ -306,6 +308,7 @@
 			packageProductDependencies = (
 				41BDFB572973130D00859643 /* ScreenshotableView */,
 				41AE4A012975441E00A206C5 /* WrappingStack */,
+				4160E3AB29783E260000F4CA /* ActivityView */,
 			);
 			productName = Sheep;
 			productReference = 41B221A8295DB6B400B55487 /* Sheep.app */;
@@ -385,6 +388,7 @@
 			packageReferences = (
 				41BDFB562973130D00859643 /* XCRemoteSwiftPackageReference "ScreenshotableView" */,
 				41AE4A002975441E00A206C5 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */,
+				4160E3AA29783E260000F4CA /* XCRemoteSwiftPackageReference "ActivityView" */,
 			);
 			productRefGroup = 41B221A9295DB6B400B55487 /* Products */;
 			projectDirPath = "";
@@ -661,10 +665,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "别羊";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "需要授权相册权限才能保存图片至本地哦！";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "别羊会利用这些信息向您推送个性化广告。";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App内的Google广告服务会利用这些信息向您展示个性化广告。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -672,7 +677,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -702,10 +707,11 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "别羊";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "需要授权相册权限才能保存图片至本地哦！";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "别羊会利用这些信息向您推送个性化广告。";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App内的Google广告服务会利用这些信息向您展示个性化广告。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,7 +719,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -843,6 +849,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4160E3AA29783E260000F4CA /* XCRemoteSwiftPackageReference "ActivityView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUI-Plus/ActivityView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		41AE4A002975441E00A206C5 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/diniska/swiftui-wrapping-stack";
@@ -862,6 +876,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4160E3AB29783E260000F4CA /* ActivityView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4160E3AA29783E260000F4CA /* XCRemoteSwiftPackageReference "ActivityView" */;
+			productName = ActivityView;
+		};
 		41AE4A012975441E00A206C5 /* WrappingStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 41AE4A002975441E00A206C5 /* XCRemoteSwiftPackageReference "swiftui-wrapping-stack" */;

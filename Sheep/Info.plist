@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-6106285619802028~7553142684</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>别羊将在需要时提醒您吃药或记录当天的身体状况。</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

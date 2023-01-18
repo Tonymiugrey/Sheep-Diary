@@ -21,7 +21,6 @@ struct SheepView: View {
     var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
     
-    
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
         //let luckyNum = input.truncatingRemainder(dividingBy: 7)
@@ -115,7 +114,6 @@ struct SheepView: View {
                                 .foregroundColor(Color("DiaryButtonText"))
                         }
                     }
-                    
                     .padding(.bottom)
                     
                     Text("撸羊\(total)次")

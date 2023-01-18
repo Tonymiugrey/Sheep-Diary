@@ -52,7 +52,7 @@ struct TodoListView: View {
                                 .multilineTextAlignment(.center)
                                 .lineSpacing(5)
                                 .font(.title)
-                            Text("如果你转阴了，可以在当天的日记中记录\n你也可以选择分享这段经历\n让更多人在羊了之后也能镇定地去面对")
+                            Text("如果需要，您可以在就医时提供这些记录\n您也可以选择分享这段经历\n让更多人在羊了之后也能镇定地去面对")
                                 .font(.body)
                                 .multilineTextAlignment(.center)
                                 .padding(.top, 2.0)
