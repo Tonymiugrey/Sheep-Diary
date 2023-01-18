@@ -13,6 +13,20 @@
       ],
       "filename" : "Frame 2.svg",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "Frame 5.svg",
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "Frame 4.svg",
+      "idiom" : "ipad"
     }
   ],
   "info" : {

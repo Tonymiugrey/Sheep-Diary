@@ -115,6 +115,7 @@ struct SheepView: View {
                                 .foregroundColor(Color("DiaryButtonText"))
                         }
                     }
+                    
                     .padding(.bottom)
                     
                     Text("撸羊\(total)次")
@@ -129,7 +130,7 @@ struct SheepView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.linearGradient(colors: [Color("SheepBG1"),Color("SheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
         .onAppear() {
             isShow = true
         }
@@ -143,5 +144,6 @@ struct SheepView: View {
 struct SheepView_Previews: PreviewProvider {
     static var previews: some View {
         SheepView()
+            .previewDevice("iPad Air (5th generation)")
     }
 }
