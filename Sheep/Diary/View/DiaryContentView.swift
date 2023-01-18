@@ -94,6 +94,14 @@ struct DiaryContentView: View {
                         .cornerRadius(20)
                         
                     }
+                    
+                    NativeContentView()
+                        .padding(.top)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                        .padding(22)
+                        .frame(width: deviceWidth/1.1, alignment: .leading)
+                        .background(Color("FGColor"))
+                        .cornerRadius(20)
                 }
             }
             .padding(.horizontal)

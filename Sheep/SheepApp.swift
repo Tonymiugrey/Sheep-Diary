@@ -17,7 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         GADMobileAds.sharedInstance().start()
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ GADSimulatorID ]
-        //GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "ef8938db1c2793d05b9370a4eb14a93c" ]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "ef8938db1c2793d05b9370a4eb14a93c" ]
         
         Thread.sleep(forTimeInterval: 1) // pause 2 sec before main storybord shows
         
