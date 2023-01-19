@@ -19,6 +19,7 @@ struct ShareContentView<Content: View>: View {
     
     let viewToShot: Content
     let title: String
+    let generator = UINotificationFeedbackGenerator()
     var deviceHeight = UIScreen.main.bounds.height
     var deviceWidth = UIScreen.main.bounds.width
     
@@ -60,10 +61,13 @@ struct ShareContentView<Content: View>: View {
                             viewToShot
                                 .cornerRadius(16)
                         }
-                        .frame(height: deviceHeight/1.3)
+                        .frame(height: deviceHeight/1.36)
                         .cornerRadius(16)
                         .scaleEffect(0.8, anchor: .bottom)
-                        .padding(.bottom, deviceHeight/25)
+                        .padding(.bottom, deviceHeight/68)
+                        
+                        Label( "请勿分享不实信息！", systemImage: "exclamationmark.triangle.fill")
+                            .padding(.bottom, deviceHeight/72)
                         
                         HStack (spacing: deviceWidth/20) {
                             Button {
@@ -86,7 +90,8 @@ struct ShareContentView<Content: View>: View {
                                     .background(Color("AccentColor"))
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
-                            .activitySheet($item, onComplete: {_,_,_,_ in 
+                            .activitySheet($item, onComplete: {_,_,_,_ in
+                                self.generator.notificationOccurred(.success)
                                 self.presentationMode.wrappedValue.dismiss()
                             })
                         }
@@ -96,13 +101,14 @@ struct ShareContentView<Content: View>: View {
                         Text("分享预览")
                             .fontWeight(.heavy)
                             .font(.system(size: 36))
-                            .padding(.leading, deviceWidth/20)
-                            .padding(.top, -deviceHeight/2.4)
+                        .padding(.leading, deviceWidth/20)
+                        .padding(.top, -deviceHeight/2.36)
+                        
                         Spacer()
                     }
                 }
-                .background(.thinMaterial)
                 .frame(width: deviceWidth, height: deviceHeight)
+                .background(.thinMaterial)
             }
     }
     
@@ -140,5 +146,6 @@ struct ShareContentView_Previews: PreviewProvider {
     static var previews: some View {
         ShareContentView(viewToShot: SheepShare(times: 3)
             .environmentObject(TodoListViewModel(testData: false)), title: "小羊日记")
+        .previewDevice("iPhone SE (3rd generation)")
     }
 }

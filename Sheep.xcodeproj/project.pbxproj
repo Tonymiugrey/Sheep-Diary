@@ -40,6 +40,7 @@
 		41BDFB582973130D00859643 /* ScreenshotableView in Frameworks */ = {isa = PBXBuildFile; productRef = 41BDFB572973130D00859643 /* ScreenshotableView */; };
 		41C5FAAF2976F741004AAA53 /* DiaryShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */; };
 		41C5FAB12976FDD9004AAA53 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */; };
+		41C81B8E29799EF700A19267 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C81B8D29799EF700A19267 /* AboutView.swift */; };
 		41DC95D12967187A00E6499D /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC95D02967187A00E6499D /* ShareContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		41B221DF295E82FD00B55487 /* SheepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepView.swift; sourceTree = "<group>"; };
 		41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryShareView.swift; sourceTree = "<group>"; };
 		41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		41C81B8C2979879800A19267 /* UpdateLog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UpdateLog.md; sourceTree = "<group>"; };
+		41C81B8D29799EF700A19267 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		41DC95D02967187A00E6499D /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
 		B4F0F2F12CE42B23D3FA01FB /* Pods-Sheep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheep.debug.xcconfig"; path = "Target Support Files/Pods-Sheep/Pods-Sheep.debug.xcconfig"; sourceTree = "<group>"; };
 		B762D056DB33E36E4DD237DE /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +187,7 @@
 				41B221DB295DF8B300B55487 /* NoSheepView.swift */,
 				41B221DF295E82FD00B55487 /* SheepView.swift */,
 				41B221DD295DF91800B55487 /* FakeSheepView.swift */,
+				41C81B8D29799EF700A19267 /* AboutView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -250,6 +254,7 @@
 				41B221B6295DB6B600B55487 /* Sheep.xcdatamodeld */,
 				41B221B1295DB6B600B55487 /* Preview Content */,
 				418A0E81297588AE00F02A3A /* Localizable.strings */,
+				41C81B8C2979879800A19267 /* UpdateLog.md */,
 			);
 			path = Sheep;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				41400A60296002B500BA0948 /* SheepApp.swift in Sources */,
 				410ECC1829649C7800B511D3 /* DiaryContentView.swift in Sources */,
 				41434A0C29632AB300ADAC31 /* AddEditTodoView.swift in Sources */,
+				41C81B8E29799EF700A19267 /* AboutView.swift in Sources */,
 				41B221B5295DB6B600B55487 /* Persistence.swift in Sources */,
 				416EE112296B2FDF007C9CB7 /* SheepShareView.swift in Sources */,
 				417597CF2965BDA500A60844 /* BannerAd.swift in Sources */,
@@ -656,7 +662,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;
@@ -698,7 +704,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;

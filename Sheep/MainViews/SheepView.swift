@@ -21,6 +21,7 @@ struct SheepView: View {
     var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
     
+    
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
         //let luckyNum = input.truncatingRemainder(dividingBy: 7)
@@ -48,6 +49,8 @@ struct SheepView: View {
                             
                             Button {
                                 self.showSharingView = true
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
                             } label: {
                                 Image(systemName: "square.and.arrow.up.circle.fill")
                                     .resizable()
@@ -85,6 +88,8 @@ struct SheepView: View {
                         .scaleEffect(isTapped ? sheepScale - 0.2 : sheepScale)
                         .animation(.easeInOut(duration: 0.2), value: isTapped)
                         .onTapGesture {
+                            let impactLight = UIImpactFeedbackGenerator(style: .light)
+                            impactLight.impactOccurred()
                             total += once
                             withAnimation {
                                 isTapped.toggle()

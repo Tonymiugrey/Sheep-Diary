@@ -58,6 +58,8 @@ struct NoSheepView: View {
                             Button {
                                 isShow = false
                                 self.showSharingView = true
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
                             } label: {
                                 Image(systemName: "square.and.arrow.up.circle.fill")
                                     .resizable()
@@ -124,6 +126,8 @@ struct NoSheepView: View {
                                 } else if sheepScale >= 2 {
                                     noticeColor = Color.gray
                                     noticeTextColor = Color(.black)
+                                    let impactHeavy = UIImpactFeedbackGenerator(style: .medium)
+                                    impactHeavy.impactOccurred()
                                     sheepStatus = "失败了……"
                                     isReached = true
                                     sheepScale += 1
@@ -144,6 +148,8 @@ struct NoSheepView: View {
                         })
                         .animation(.easeOut, value: sheepScale)
                         .onTapGesture {
+                            let impactLight = UIImpactFeedbackGenerator(style: .light)
+                            impactLight.impactOccurred()
                             if isShow {
                                 total += once
                                 if sheepScale >= 0.20 && sheepScale < 1.25 {
@@ -192,6 +198,8 @@ struct NoSheepView: View {
                     
                     Button {
                         isShow = true
+                        let impactLight = UIImpactFeedbackGenerator(style: .light)
+                        impactLight.impactOccurred()
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)

@@ -20,14 +20,19 @@ struct SheepShare: View {
         let diaries = viewModel.filteredListOfTodosByTitle("")
         
         VStack {
-            Text("\(String(year)).\(month).\(day)")
-                .font(.title2)
-                .fontWeight(.heavy)
-                .frame(width: deviceWidth/1.1, alignment: .leading)
-                .foregroundColor(Color("SheepColor1"))
-                //.foregroundStyle(.regularMaterial)
-                .padding(.top, 52)
-                .padding(.leading)
+            VStack(alignment: .leading) {
+                Text("\(String(year)).\(month).\(day)")
+                    .font(.title2)
+                    .fontWeight(.heavy)
+                    .padding(.bottom, 1)
+                Label("该内容为用户自行分享，与“别羊”及其开发者无关。请谨慎辨别内容真假！", systemImage: "exclamationmark.triangle.fill")
+                    .font(.headline)
+            }
+            .frame(width: deviceWidth/1.1, alignment: .leading)
+            .foregroundColor(Color("SheepColor1"))
+            .padding(.top, 52)
+            .padding(.leading)
+            
             VStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 2) {
                     HStack {
@@ -146,6 +151,7 @@ struct SheepShare: View {
                 Image("QRCode")
                     .resizable()
                     .scaledToFit()
+                    .background(.thinMaterial)
                     .frame(width: 55, height: 55)
                     .cornerRadius(6)
             }
@@ -153,6 +159,9 @@ struct SheepShare: View {
             .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .frame(width: deviceWidth/1.1)
+            .padding(.bottom)
+            
+            Image("Store")
             
             Spacer(minLength: 60)
         }

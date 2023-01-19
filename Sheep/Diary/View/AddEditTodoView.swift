@@ -17,6 +17,7 @@ struct AddEditTodoView: View {
     @State private var showNotificationExpiredDialog = false
     @State private var notificationIsNotAuthorized = false
     @State private var insertOrUpdateNotification = false
+    let generator = UINotificationFeedbackGenerator()
     
     let step = 0.1
     let range = 35.0...42.0
@@ -149,6 +150,7 @@ struct AddEditTodoView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("完成") {
                         handleDonePressed()
+                        self.generator.notificationOccurred(.success)
                         RandomRate(input: CGFloat.random(in: 0...35))
                     }
                     .disabled(todoItem.feeling.isEmpty || todoItem.symptom.allSatisfy({$0 == false}))

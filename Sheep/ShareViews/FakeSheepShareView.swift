@@ -98,6 +98,7 @@ struct FakeSheepShare: View {
                 Image("QRCode")
                     .resizable()
                     .scaledToFit()
+                    .background(.thinMaterial)
                     .frame(width: 55, height: 55)
                     .cornerRadius(6)
             }
@@ -105,6 +106,9 @@ struct FakeSheepShare: View {
             .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .frame(width: deviceWidth/1.1)
+            .padding(.bottom)
+            
+            Image("Store")
             
             Spacer(minLength: 60)
         }

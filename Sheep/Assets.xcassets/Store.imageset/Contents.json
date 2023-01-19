@@ -1,0 +1,30 @@
+{
+  "images" : [
+    {
+      "filename" : "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217.svg",
+      "idiom" : "universal",
+      "locale" : "zh-HK"
+    },
+    {
+      "filename" : "Download_on_the_App_Store_Badge_CNSC_RGB_blk_092917.svg",
+      "idiom" : "universal",
+      "locale" : "zh-Hans"
+    },
+    {
+      "filename" : "Download_on_the_App_Store_Badge_CNTC_RGB_blk_100217 1.svg",
+      "idiom" : "universal",
+      "locale" : "zh-Hant"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
+  }
+}

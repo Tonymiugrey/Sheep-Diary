@@ -30,7 +30,7 @@ struct DiaryShareView: View {
                             .fontWeight(.medium)
                             .foregroundColor((Color("SheepColor1")))
                 }
-                .padding(.top, 72)
+                .padding(.top, 56)
                 
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 18) {
@@ -123,6 +123,7 @@ struct DiaryShareView: View {
                 Image("QRCode")
                     .resizable()
                     .scaledToFit()
+                    .background(.thinMaterial)
                     .frame(width: 55, height: 55)
                     .cornerRadius(6)
             }
@@ -130,9 +131,11 @@ struct DiaryShareView: View {
             .background(.thinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .frame(width: deviceWidth/1.1)
+            .padding(.bottom)
             
-            Spacer(minLength: 50
-            )
+            Image("Store")
+            
+            Spacer(minLength: 60)
 
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

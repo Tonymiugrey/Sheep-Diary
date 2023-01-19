@@ -1,6 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "%E6%9C%AA%E5%91%BD%E5%90%8D%E7%A0%81.png",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "1_539379820_171_86_3_657302685_dd2635d2bd38c50ced5a0c9d1adab7d7.png",
       "idiom" : "universal"
     }
   ],
