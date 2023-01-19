@@ -71,11 +71,12 @@ struct FakeSheepView: View {
                 .frame(width: deviceWidth, alignment: .leading)
                 .padding(.leading, deviceWidth/10)
                 .padding(.top, deviceHeight/20)
-                
+                //+ CGFloat.random(in: -deviceWidth/2.4...deviceWidth/3.5)
+                //+ CGFloat.random(in: -deviceHeight/5...deviceHeight/5.5)
                 Image("Sheep")
                     .resizable()
                     .scaledToFit()
-                    .position(x: deviceWidth/3 + CGFloat.random(in: -100...100), y: deviceHeight/3 + CGFloat.random(in: -160...150))
+                    .position(x: deviceWidth/3 + CGFloat.random(in: -deviceWidth/2.2...deviceWidth/3.8), y: deviceHeight/3 + CGFloat.random(in: -deviceHeight/5...deviceHeight/5.5)  )
                     .frame(width: 200)
                     .scaleEffect(isTapped ? sheepScale-0.2 : sheepScale)
                     .animation(.easeInOut(duration: 0.2))
@@ -117,5 +118,6 @@ struct FakeSheepView: View {
 struct FakeSheepView_Previews: PreviewProvider {
     static var previews: some View {
         FakeSheepView()
+            //.previewDevice("iPad Pro (12.9-inch) (6th generation)")
     }
 }

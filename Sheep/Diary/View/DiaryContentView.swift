@@ -81,7 +81,7 @@ struct DiaryContentView: View {
                     
                     if todoItem.diaryWords != "" {
                         VStack(alignment: .leading, spacing: 14) {
-                            Text("📝日记：")
+                            Text("📝 日记")
                                 .fontWeight(.semibold)
                                 .font(.title2)
                             Text(todoItem.diaryWords)
@@ -95,9 +95,12 @@ struct DiaryContentView: View {
                         
                     }
                     
-                    NativeContentView()
-                        .padding(.top)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    VStack(alignment: .leading, spacing: 14) {
+                        Text("🪧 广告")
+                            .fontWeight(.semibold)
+                            .font(.title2)
+                        NativeContentView()
+                    }
                         .padding(22)
                         .frame(width: deviceWidth/1.1, alignment: .leading)
                         .background(Color("FGColor"))

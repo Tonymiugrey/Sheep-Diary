@@ -81,7 +81,7 @@ struct SheepView: View {
                     Image("Sheep")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: deviceWidth/2)
+                        .frame(width: deviceWidth/2.2)
                         .scaleEffect(isTapped ? sheepScale - 0.2 : sheepScale)
                         .animation(.easeInOut(duration: 0.2), value: isTapped)
                         .onTapGesture {
