@@ -11,7 +11,7 @@ import StoreKit
 struct NoSheepView: View {
     private var title:LocalizedStringKey = "别羊"
     private var subTitle1:LocalizedStringKey = "但是小羊还是很可爱的！"
-    private var subTitle2:LocalizedStringKey = "这里代指新冠“别阳”"
+    private var subTitle2:LocalizedStringKey = "这里的“羊”仅仅指“阳”"
     @State private var total = 0
     @State private var once = 1
     @State private var score = 0

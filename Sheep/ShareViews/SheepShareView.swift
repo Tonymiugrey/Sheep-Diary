@@ -120,7 +120,7 @@ struct SheepShare: View {
                             .frame(height: 180)
                             .opacity(0.9)
                             .padding(.horizontal, 15.0)
-                        Text("可以用“别羊”App\n记录并分享新冠期间的身体状况和应对方法哦")
+                        Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
                             .fontWeight(.medium)
                             .lineLimit(5)
                             .frame(height: 180)
@@ -144,7 +144,7 @@ struct SheepShare: View {
                     Text("别羊")
                         .font(.title2)
                         .fontWeight(.black)
-                    Text("赛博羊木鱼 新冠日记本")
+                    Text("赛博羊木鱼 症状日记本")
                         .font(.subheadline)
                 }
                 Spacer()

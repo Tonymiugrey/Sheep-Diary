@@ -126,7 +126,7 @@ struct DiaryListShareView: View {
                     Text("别羊")
                         .font(.title2)
                         .fontWeight(.black)
-                    Text("赛博羊木鱼 新冠日记本")
+                    Text("赛博羊木鱼 症状日记本")
                         .font(.subheadline)
                 }
                 Spacer()

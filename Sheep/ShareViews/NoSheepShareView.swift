@@ -64,7 +64,7 @@ struct NoSheepShare: View {
                         .padding(.bottom, 2)
                     Text("但小羊还是很可爱的")
                         .font(.body)
-                    Text("这里仅仅指 “新冠别来!”")
+                    Text("这里的“羊”仅仅指“阳”")
                         .font(.body)
                 }
                 .padding(.bottom)
@@ -76,7 +76,7 @@ struct NoSheepShare: View {
                         .frame(width: 110)
                         .opacity(0.90)
                         .padding(.horizontal, 15.0)
-                    Text("可以用“别羊”App\n记录并分享新冠期间的身体状况和应对方法哦")
+                    Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
                         .fontWeight(.medium)
                         .multilineTextAlignment(.center)
                 }
@@ -97,7 +97,7 @@ struct NoSheepShare: View {
                     Text("别羊")
                         .font(.title2)
                         .fontWeight(.black)
-                    Text("赛博羊木鱼 新冠日记本")
+                    Text("赛博羊木鱼 症状日记本")
                         .font(.subheadline)
                 }
                 Spacer()

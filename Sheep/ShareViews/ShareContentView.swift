@@ -66,7 +66,7 @@ struct ShareContentView<Content: View>: View {
                         .scaleEffect(0.8, anchor: .bottom)
                         .padding(.bottom, deviceHeight/68)
                         
-                        Label( "请勿分享不实信息！", systemImage: "exclamationmark.triangle.fill")
+                        Label("请勿分享不实信息！", systemImage: "exclamationmark.triangle.fill")
                             .padding(.bottom, deviceHeight/72)
                         
                         HStack (spacing: deviceWidth/20) {
@@ -126,20 +126,6 @@ struct ShareContentView<Content: View>: View {
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: img)
     }
-    
-//
-//    func share(img:UIImage, title:String) {
-//        let fileManager = FileManager.default
-//        let rootPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
-//        let filePath = "\(rootPath)/\(title).jpg"
-//        let imageData = img.jpegData(compressionQuality: 0.8)
-//        fileManager.createFile(atPath: filePath, contents: imageData, attributes: nil)
-//        let url:URL = URL.init(fileURLWithPath: filePath)
-//        let av = UIActivityViewController(activityItems: [url], applicationActivities: nil)
-//        UIApplication.shared.windows.first?.rootViewController!.present(av, animated: true, completion: nil)
-//        //RandomRate(input: CGFloat.random(in: 0...35))
-//    }
-//
 }
 
 struct ShareContentView_Previews: PreviewProvider {

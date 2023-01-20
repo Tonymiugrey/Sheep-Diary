@@ -42,7 +42,7 @@ struct AddEditTodoView: View {
                     TextField("今天感觉怎么样？", text: $todoItem.feeling)
                 }
                 
-                Section(header: Text("核酸/抗原结果")) {
+                Section(header: Text("检测结果")) {
                     HStack {
                         Text("检测结果是")
                         Picker("检测结果是", selection: $todoItem.testResult) {
