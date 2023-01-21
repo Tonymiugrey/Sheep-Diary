@@ -31,6 +31,7 @@ struct NoSheepView: View {
     @State var stage1MoveBack = 0.04
     @State var stage2MoveBack = 0.05
     @State var stage3MoveBack = 0.08
+    @State var speed = 0.045
     
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
@@ -68,6 +69,7 @@ struct NoSheepView: View {
                                 } label: {
                                     Text(difficulty ? "困难" : "简单")
                                 }
+                                .tint(Color("NoSheepColor1"))
                                 .buttonStyle(.bordered)
                                 
                                 Button {
@@ -128,7 +130,7 @@ struct NoSheepView: View {
                                         }
                                     } else {
                                         isReached = false
-                                        sheepScale += 0.045
+                                        sheepScale += speed
                                         if sheepScale >= 0.25 && sheepScale < 1.25 {
                                             noticeColor = Color.green
                                             sheepStatus = "戳羊！别来！"
@@ -158,7 +160,7 @@ struct NoSheepView: View {
                                         totalScore += score
                                     }
                                     if sheepScale > 42{
-                                        sheepScale = 0.4
+                                        sheepScale = 0.2
                                     }
                                     
                                 }
@@ -173,15 +175,17 @@ struct NoSheepView: View {
                             let impactLight = UIImpactFeedbackGenerator(style: .light)
                             impactLight.impactOccurred()
                             if difficulty {
-                                reactTime = 0.5
-                                stage1MoveBack = 0.03
-                                stage2MoveBack = 0.04
-                                stage3MoveBack = 0.07
+                                reactTime = 0.3
+                                speed = 0.075
+                                stage1MoveBack = 0.01
+                                stage2MoveBack = 0.027
+                                stage3MoveBack = 0.053
                             } else {
                                 reactTime = 0.2
-                                stage1MoveBack = 0.04
-                                stage2MoveBack = 0.05
-                                stage3MoveBack = 0.09
+                                speed = 0.045
+                                stage1MoveBack = 0.047
+                                stage2MoveBack = 0.07
+                                stage3MoveBack = 0.1
                             }
                             if isShow {
                                 total += once
@@ -213,22 +217,20 @@ struct NoSheepView: View {
                     ZStack {
                         if sheepScale < 2  {
                             Text("\(score)分")
-                                .font(.title2)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("NoSheepColor2"))
                                 .padding(.bottom, 11.0)
                                 .opacity(isTapped ? 0.7 : 0)
-                                .foregroundStyle(.thickMaterial)
                                 .animation(.easeInOut(duration: 0.05), value: totalScore)
                         } else if sheepScale >= 2 {
                             Text("戳不动？不妨静下心来慢慢戳吧~")
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(Color("NoSheepColor2"))
-                                .padding(.bottom, 11)
+                                .padding(.bottom, 11.0)
                                 .opacity(sheepScale >= 2.0 ? 0.7 : 0)
                                 .animation(.easeInOut(duration: 0.4), value: sheepScale)
-                                .foregroundStyle(.thickMaterial)
                         }
                     }
                     .animation(.easeInOut)
