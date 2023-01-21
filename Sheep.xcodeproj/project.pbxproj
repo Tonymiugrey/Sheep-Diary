@@ -42,6 +42,7 @@
 		41C5FAB12976FDD9004AAA53 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */; };
 		41C81B8E29799EF700A19267 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C81B8D29799EF700A19267 /* AboutView.swift */; };
 		41DC95D12967187A00E6499D /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC95D02967187A00E6499D /* ShareContentView.swift */; };
+		41E737FA297AC4A9008A3217 /* IAPControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E737F9297AC4A9008A3217 /* IAPControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		41C81B8C2979879800A19267 /* UpdateLog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UpdateLog.md; sourceTree = "<group>"; };
 		41C81B8D29799EF700A19267 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		41DC95D02967187A00E6499D /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
+		41E737F9297AC4A9008A3217 /* IAPControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPControl.swift; sourceTree = "<group>"; };
+		41E737FC297AC82E008A3217 /* 别羊 - 症状日记本 赛博羊木鱼.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "别羊 - 症状日记本 赛博羊木鱼.storekit"; sourceTree = "<group>"; };
 		B4F0F2F12CE42B23D3FA01FB /* Pods-Sheep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheep.debug.xcconfig"; path = "Target Support Files/Pods-Sheep/Pods-Sheep.debug.xcconfig"; sourceTree = "<group>"; };
 		B762D056DB33E36E4DD237DE /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -218,7 +221,6 @@
 		41B2219F295DB6B400B55487 = {
 			isa = PBXGroup;
 			children = (
-				41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */,
 				41B221AA295DB6B400B55487 /* Sheep */,
 				41B221C1295DB6B700B55487 /* SheepTests */,
 				41B221CB295DB6B700B55487 /* SheepUITests */,
@@ -241,6 +243,8 @@
 		41B221AA295DB6B400B55487 /* Sheep */ = {
 			isa = PBXGroup;
 			children = (
+				41E737FB297AC4AF008A3217 /* IAP */,
+				41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */,
 				416EE10E296B2F80007C9CB7 /* ShareViews */,
 				417597CD2965BD6D00A60844 /* Ads */,
 				4121B5B92965430D00518BD0 /* Info.plist */,
@@ -282,6 +286,15 @@
 				41B221CE295DB6B700B55487 /* SheepUITestsLaunchTests.swift */,
 			);
 			path = SheepUITests;
+			sourceTree = "<group>";
+		};
+		41E737FB297AC4AF008A3217 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				41E737F9297AC4A9008A3217 /* IAPControl.swift */,
+				41E737FC297AC82E008A3217 /* 别羊 - 症状日记本 赛博羊木鱼.storekit */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		BE6174B1DAF1C77BFB1D8B10 /* Pods */ = {
@@ -367,6 +380,7 @@
 				TargetAttributes = {
 					41B221A7295DB6B400B55487 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					41B221BD295DB6B700B55487 = {
 						CreatedOnToolsVersion = 14.2;
@@ -479,6 +493,7 @@
 				410ECC1829649C7800B511D3 /* DiaryContentView.swift in Sources */,
 				41434A0C29632AB300ADAC31 /* AddEditTodoView.swift in Sources */,
 				41C81B8E29799EF700A19267 /* AboutView.swift in Sources */,
+				41E737FA297AC4A9008A3217 /* IAPControl.swift in Sources */,
 				41B221B5295DB6B600B55487 /* Persistence.swift in Sources */,
 				416EE112296B2FDF007C9CB7 /* SheepShareView.swift in Sources */,
 				417597CF2965BDA500A60844 /* BannerAd.swift in Sources */,
@@ -660,9 +675,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = b2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;
@@ -690,6 +706,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -702,9 +719,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = b2.1;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;

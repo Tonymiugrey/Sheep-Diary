@@ -134,35 +134,45 @@ struct SheepShare: View {
                 .padding(.bottom, 42)
             }
             
-            HStack(spacing: 12) {
-                Image("Icon")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(12)
-                VStack(alignment: .leading) {
-                    Text("别羊")
-                        .font(.title2)
-                        .fontWeight(.black)
-                    Text("赛博羊木鱼 症状日记本")
-                        .font(.subheadline)
+            VStack(spacing: 24) {
+                HStack(spacing: 12) {
+                    Image("Icon")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(12)
+                    VStack(alignment: .leading) {
+                        Text("别羊")
+                            .font(.title2)
+                            .fontWeight(.black)
+                        Text("赛博羊木鱼 症状日记本")
+                            .font(.subheadline)
+                    }
+                    Spacer()
                 }
-                Spacer()
-                Image("QRCode")
-                    .resizable()
-                    .scaledToFit()
-                    .background(.thinMaterial)
-                    .frame(width: 55, height: 55)
-                    .cornerRadius(6)
+                .padding(22)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
+                
+                HStack(spacing: 32) {
+                    Spacer()
+                    Image("Store")
+                    Image("QRCode")
+                        .resizable()
+                        .scaledToFit()
+                        .background(.thinMaterial)
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(12)
+                    Spacer()
+                }
+                .padding(12)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
+                .padding(.bottom)
             }
-            .padding(22)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .frame(width: deviceWidth/1.1)
-            .padding(.bottom)
-            
-            Image("Store")
-            
+
             Spacer(minLength: 60)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

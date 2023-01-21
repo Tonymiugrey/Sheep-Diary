@@ -26,6 +26,11 @@ struct NoSheepView: View {
     private var deviceHeight = UIScreen.main.bounds.height
     private var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
+    @State var difficulty = false
+    @State var reactTime = 0.2
+    @State var stage1MoveBack = 0.04
+    @State var stage2MoveBack = 0.05
+    @State var stage3MoveBack = 0.08
     
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
@@ -55,23 +60,34 @@ struct NoSheepView: View {
                             
                             Spacer()
                             
-                            Button {
-                                isShow = false
-                                self.showSharingView = true
-                                let impactLight = UIImpactFeedbackGenerator(style: .light)
-                                impactLight.impactOccurred()
-                            } label: {
-                                Image(systemName: "square.and.arrow.up.circle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40)
-                                    .padding(.trailing, deviceWidth/10)
-                            }
-                            .fullScreenCover(isPresented: $showSharingView)
-                            {
-                                ShareContentView(viewToShot: NoSheepShare(times: total, totalScore: totalScore)
-                                    .environmentObject(TodoListViewModel(testData: false)), title: "别羊🙏🏻 - 分享自 别羊App")
-                                .foregroundColor(Color("TextColor"))
+                            HStack(spacing: 22) {
+                                Button {
+                                    self.difficulty.toggle()
+                                    let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                    impactLight.impactOccurred()
+                                } label: {
+                                    Text(difficulty ? "困难" : "简单")
+                                }
+                                .buttonStyle(.bordered)
+                                
+                                Button {
+                                    isShow = false
+                                    self.showSharingView = true
+                                    let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                    impactLight.impactOccurred()
+                                } label: {
+                                    Image(systemName: "square.and.arrow.up.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40)
+                                        .padding(.trailing, deviceWidth/10)
+                                }
+                                .fullScreenCover(isPresented: $showSharingView)
+                                {
+                                    ShareContentView(viewToShot: NoSheepShare(times: total, totalScore: totalScore)
+                                        .environmentObject(TodoListViewModel(testData: false)), title: "别羊🙏🏻 - 分享自 别羊App")
+                                    .foregroundColor(Color("TextColor"))
+                                }
                             }
                         }
                         Text(subTitle1)
@@ -101,8 +117,14 @@ struct NoSheepView: View {
                             if isShow{
                                 if sheepScale <= 2{
                                     if isTapped {
-                                        if sheepScale >= 0.25{
-                                            sheepScale -= 0.03
+                                        if sheepScale >= 0.25 && sheepScale < 1.05 {
+                                            sheepScale -= stage1MoveBack
+                                        }
+                                        if sheepScale >= 1.05 && sheepScale < 1.6 {
+                                            sheepScale -= stage2MoveBack
+                                        }
+                                        if sheepScale >= 1.6 && sheepScale < 2 {
+                                            sheepScale -= stage3MoveBack
                                         }
                                     } else {
                                         isReached = false
@@ -150,6 +172,17 @@ struct NoSheepView: View {
                         .onTapGesture {
                             let impactLight = UIImpactFeedbackGenerator(style: .light)
                             impactLight.impactOccurred()
+                            if difficulty {
+                                reactTime = 0.5
+                                stage1MoveBack = 0.03
+                                stage2MoveBack = 0.04
+                                stage3MoveBack = 0.07
+                            } else {
+                                reactTime = 0.2
+                                stage1MoveBack = 0.04
+                                stage2MoveBack = 0.05
+                                stage3MoveBack = 0.09
+                            }
                             if isShow {
                                 total += once
                                 if sheepScale >= 0.20 && sheepScale < 1.25 {
@@ -166,7 +199,7 @@ struct NoSheepView: View {
                                 }
                                 withAnimation {
                                     isTapped.toggle()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + reactTime) {
                                         self.isTapped.toggle()
                                     }
                                 }
@@ -177,24 +210,28 @@ struct NoSheepView: View {
                 .padding(.bottom,deviceHeight/13)
                 
                 VStack {
-                    if score != -1 {
-                        Text("\(score)分")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("NoSheepColor2"))
-                            .padding(.bottom, 11.0)
-                            .opacity(isTapped ? 0.7 : 0)
-                            .foregroundStyle(.thickMaterial)
-                            .animation(.easeInOut(duration: 0.05), value: totalScore)
-                    } else {
-                        Text("-40分")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("NoSheepColor2"))
-                            .padding(.bottom, 11.0)
-                            .opacity(isTapped ? 0.7 : 0)
-                            .foregroundStyle(.thickMaterial)
+                    ZStack {
+                        if sheepScale < 2  {
+                            Text("\(score)分")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("NoSheepColor2"))
+                                .padding(.bottom, 11.0)
+                                .opacity(isTapped ? 0.7 : 0)
+                                .foregroundStyle(.thickMaterial)
+                                .animation(.easeInOut(duration: 0.05), value: totalScore)
+                        } else if sheepScale >= 2 {
+                            Text("戳不动？不妨静下心来慢慢戳吧~")
+                                .font(.title3)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("NoSheepColor2"))
+                                .padding(.bottom, 11)
+                                .opacity(sheepScale >= 2.0 ? 0.7 : 0)
+                                .animation(.easeInOut(duration: 0.4), value: sheepScale)
+                                .foregroundStyle(.thickMaterial)
+                        }
                     }
+                    .animation(.easeInOut)
                     
                     Button {
                         isShow = true
@@ -227,7 +264,6 @@ struct NoSheepView: View {
                         .foregroundStyle(.thickMaterial)
                         
                 }
-                .animation(.easeInOut, value: isTapped)
                 .padding(.bottom,-deviceHeight/5)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

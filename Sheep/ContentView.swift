@@ -140,6 +140,11 @@ struct ContentView: View {
                   //  .tabItem { Label("数羊", systemImage: "tray.and.arrow.down.fill") }
                    // .tag(4)
         //    }
+            AboutView()
+                .tint(Color("SheepColor"))
+                .tabItem {
+                    Label("关于", systemImage: "info.circle.fill")
+                }
         
         }
         .tint(Color("MainColor"))
