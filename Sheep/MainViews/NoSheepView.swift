@@ -174,6 +174,7 @@ struct NoSheepView: View {
                         .onTapGesture {
                             let impactLight = UIImpactFeedbackGenerator(style: .light)
                             impactLight.impactOccurred()
+                            
                             if difficulty {
                                 reactTime = 0.3
                                 speed = 0.075
@@ -187,6 +188,7 @@ struct NoSheepView: View {
                                 stage2MoveBack = 0.07
                                 stage3MoveBack = 0.1
                             }
+                            
                             if isShow {
                                 total += once
                                 if sheepScale >= 0.20 && sheepScale < 1.25 {

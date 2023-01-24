@@ -105,6 +105,9 @@ struct TodoListView: View {
                 }
                 .sheet(isPresented: self.$showEditingPage) {
                     AddEditTodoView(todoItem: TodoListInfo.TodoItem())
+                        .onDisappear() {
+                            RandomRate(input: CGFloat.random(in: 0...35))
+                        }
                 }
             }
         }

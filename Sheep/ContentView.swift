@@ -105,6 +105,9 @@ extension View {
 struct ContentView: View {
     @State var color = Color("NoSheepColor")
     @State var reviewHasShown = false
+    
+    @StateObject var store: Store = Store()
+    
     func RandomRate(input: CGFloat) {
         //let luckyNum = input.truncatingRemainder(dividingBy: 7)
         if input == 43 && reviewHasShown == false {
@@ -149,6 +152,7 @@ struct ContentView: View {
                    // .tag(4)
         //    }
             AboutView()
+                .environmentObject(store)
                 .tint(Color("SheepColor"))
                 .tabItem {
                     Label("关于", systemImage: "info.circle.fill")
@@ -161,9 +165,6 @@ struct ContentView: View {
         }
         .tint(color)
         //.animation(.easeInOut, value: color)
-        
-        
-        
     }
 }
 

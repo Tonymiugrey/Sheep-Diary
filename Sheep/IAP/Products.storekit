@@ -1,5 +1,5 @@
 {
-  "identifier" : "C1A9BED6",
+  "identifier" : "B888BDCF",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -7,7 +7,7 @@
     {
       "displayPrice" : "0.99",
       "familyShareable" : false,
-      "internalID" : "6445479576",
+      "internalID" : "6445503228",
       "localizations" : [
         {
           "description" : "移除App內的所有廣告",
@@ -15,7 +15,7 @@
           "locale" : "zh_CN"
         }
       ],
-      "productID" : "AD01",
+      "productID" : "sheep.removeAd",
       "referenceName" : "去除广告",
       "type" : "NonConsumable"
     }
@@ -23,7 +23,7 @@
   "settings" : {
     "_applicationInternalID" : "1666275886",
     "_developerTeamID" : "HEUZ3URRQ5",
-    "_lastSynchronizedDate" : 695912523.87062705
+    "_lastSynchronizedDate" : 696230343.47627199
   },
   "subscriptionGroups" : [
 

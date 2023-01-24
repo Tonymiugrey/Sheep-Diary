@@ -33,7 +33,94 @@ extension Bundle {
     }
 }
 
+struct IAPButton: View {
+    @EnvironmentObject var store: Store
+    @State var isPurchased: Bool = false
+    @State var errorTitle = ""
+    @State var isShowingError: Bool = false
+
+    let product: Product
+    let purchasingEnabled: Bool
+
+    var emoji: String {
+        store.emoji(for: product.id)
+    }
+
+    init(product: Product, purchasingEnabled: Bool = true) {
+        self.product = product
+        self.purchasingEnabled = purchasingEnabled
+    }
+
+    var body: some View {
+        HStack {
+            if purchasingEnabled {
+                buyButton
+                    .disabled(isPurchased)
+            } else {
+                productDetail
+            }
+        }
+        .alert(isPresented: $isShowingError, content: {
+            Alert(title: Text(errorTitle), message: nil, dismissButton: .default(Text("Okay")))
+        })
+    }
+
+    @ViewBuilder
+    var productDetail: some View {
+        if product.type == .autoRenewable {
+            VStack(alignment: .leading) {
+                Text(product.displayName)
+                    .bold()
+                Text(product.description)
+            }
+        } else {
+            Text(product.description)
+                .frame(alignment: .leading)
+        }
+    }
+
+    var buyButton: some View {
+        Button(action: {
+            Task {
+                await buy()
+            }
+        }) {
+            if isPurchased {
+                Text("感谢支持！广告已移除！")
+                    .bold()
+            } else {
+                Text("\(product.displayName) \(product.displayPrice)")
+                    .bold()
+            }
+        }
+        .onAppear {
+            Task {
+                isPurchased = (try? await store.isPurchased(product)) ?? false
+            }
+        }
+    }
+
+    func buy() async {
+        do {
+            if try await store.purchase(product) != nil {
+                withAnimation {
+                    isPurchased = true
+                }
+            }
+        } catch StoreError.failedVerification {
+            errorTitle = "Your purchase could not be verified by the App Store."
+            isShowingError = true
+        } catch {
+            print("Failed purchase for \(product.id): \(error)")
+        }
+    }
+}
+
+
 struct AboutView: View {
+    @EnvironmentObject var store: Store
+    
+    
     var body: some View {
         NavigationView {
             List {
@@ -50,12 +137,22 @@ struct AboutView: View {
                     }
                 }
                 Section("支持作者") {
-//                    Text("我在应用中加入了广告，以支撑我的后续开发。如果您觉得这个App还不错的话，可以点击下方的内购按钮去除广告。感谢支持！")
-//                    Button {
-//                        
-//                    } label: {
-//                        Text("￥6  去除广告")
-//                    }
+                    Text("我在应用中加入了广告，以支撑我的后续开发。如果您觉得这个App还不错的话，可以点击下方的内购按钮去除广告。感谢支持！")
+                    
+                    ForEach(store.Prod) { prod in
+                        IAPButton(product: prod)
+                    }
+                    
+                    Button("Restore Purchases", action: {
+                        Task {
+                            //This call displays a system prompt that asks users to authenticate with their App Store credentials.
+                            //Call this function only in response to an explicit user action, such as tapping a button.
+                            try? await AppStore.sync()
+                        }
+                    })
+                }
+                
+                Section {
                     Button {
                         if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                             SKStoreReviewController.requestReview(in: scene)
@@ -79,7 +176,9 @@ struct AboutView: View {
 }
 
 struct AboutView_Previews: PreviewProvider {
+    //@State static var purchased = false
     static var previews: some View {
         AboutView()
+            .environmentObject(Store())
     }
 }
