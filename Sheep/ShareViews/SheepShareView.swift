@@ -24,7 +24,7 @@ struct SheepShare: View {
                 Text("\(String(year)).\(month).\(day)")
                     .font(.title2)
                     .fontWeight(.heavy)
-                    .padding(.bottom, 1)
+                    .padding(.bottom, 4)
                 Label("该内容为用户自行分享，与“小羊日记”及其开发者无关。请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
                     .font(.headline)
             }
@@ -32,6 +32,7 @@ struct SheepShare: View {
             .foregroundColor(Color("SheepColor1"))
             .padding(.top, 52)
             .padding(.leading)
+            .padding(.bottom, 12)
             
             VStack(spacing: 20) {
                 VStack(alignment: .leading, spacing: 2) {

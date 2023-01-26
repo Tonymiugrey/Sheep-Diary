@@ -26,68 +26,64 @@ struct DiaryShareView: View {
                     .font(.title3)
                     .fontWeight(.medium)
                     .padding(.bottom, 2)
-                Label("该内容为用户自行分享，与“小羊日记”及其开发者无关。请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
+                Label("该内容为用户自行分享，请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
                     .font(.headline)
             }
             .foregroundColor((Color("SheepColor1")))
             .frame(width: deviceWidth/1.1, alignment: .leading)
             .padding(.top, 56)
-                
-            VStack(alignment: .leading, spacing: 24) {
-                VStack(alignment: .leading, spacing: 18) {
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("💭 \(todoItem.feeling)")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.bottom, 5)
-                        if todoItem.testResult == 0 {
-                            Text("🧪 检测结果：阴性")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                        } else {
-                            Text("🧪 检测结果：阳性")
-                                .font(.title2)
-                                .fontWeight(.medium)
-                        }
-                    }
-
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("🤧症状")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                        
-                        SymptonView(todoItem: todoItem)
-                    }
-                    
-                    if todoItem.symptom[1] {
-                        Text("🌡️体温：\(todoItem.temperature, specifier: "%g")℃")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                    }
-                        
-                    if todoItem.isHavingDrug == 0 {
-                        Text("💊用药：无")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                    }
-                    else {
-                        Text("💊用药：\(todoItem.drug)")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                    }
-                    
-                    if todoItem.others != "" {
-                        Text("☑️其他措施：\(todoItem.others)")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                    }
-                    Label("症状与应对措施因人而异，以上信息仅做为参考。请结合自身情况，谨慎使用以上方法；或遵循医嘱。", systemImage: "exclamationmark.triangle.fill")
-                        .font(.headline)
+                       
+            VStack(alignment: .leading, spacing: 14) {
+                Text("💭 \(todoItem.feeling)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.bottom, 5)
+                if todoItem.testResult == 0 {
+                    Text("🧪 检测结果：阴性")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                } else {
+                    Text("🧪 检测结果：阳性")
+                        .font(.title2)
+                        .fontWeight(.medium)
                 }
-                .padding(22)
-                .frame(width: deviceWidth/1.1, alignment: .leading)
-                .background(.thinMaterial)
-                .cornerRadius(20)
+                Text("🤧症状")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                
+                SymptonView(todoItem: todoItem)
+                
+                if todoItem.symptom[1] {
+                    Text("🌡️体温：\(todoItem.temperature, specifier: "%g")℃")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                }
+                    
+                if todoItem.isHavingDrug == 0 {
+                    Text("💊用药：无")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                }
+                else {
+                    Text("💊用药：\(todoItem.drug)")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                }
+                
+                if todoItem.others != "" {
+                    Text("☑️其他措施：\(todoItem.others)")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                }
+                
+                Label("症状与措施因人而异，仅可做为参考。",  systemImage: "exclamationmark.triangle.fill")         .font(.headline)
+                    .padding(.top, 10)
+                
+            }
+            .padding(22)
+            .frame(width: deviceWidth/1.1, alignment: .leading)
+            .background(.thinMaterial)
+            .cornerRadius(20)
                 
             if todoItem.diaryWords != "" {
                 VStack(alignment: .leading, spacing: 14) {
@@ -102,10 +98,9 @@ struct DiaryShareView: View {
                 .frame(width: deviceWidth/1.1, alignment: .leading)
                 .background(.thinMaterial)
                 .cornerRadius(20)
+                .padding(.top, 12)
             }
-            }
-            .padding(.bottom, 42)
-            
+                        
             VStack(spacing: 24) {
                 HStack(spacing: 12) {
                     Image("Icon")
@@ -145,6 +140,7 @@ struct DiaryShareView: View {
                 .frame(width: deviceWidth/1.1)
                 .padding(.bottom)
             }
+            .padding(.top, 42)
             
             Spacer(minLength: 60)
 
