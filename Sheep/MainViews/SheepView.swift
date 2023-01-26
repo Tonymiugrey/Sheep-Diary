@@ -107,6 +107,7 @@ struct SheepView: View {
                         TodoListView()
                             .showTabBar()
                             .environmentObject(TodoListViewModel(testData: false))
+                            .environmentObject(Store())
                             .tint(Color("SheepColor"))
                     } label: {
                         ZStack {

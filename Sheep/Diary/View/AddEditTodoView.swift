@@ -12,6 +12,7 @@ import WrappingStack
 
 struct AddEditTodoView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
+    @EnvironmentObject var store: Store
     @Environment(\.presentationMode) var presentationMode
     @State var todoItem: TodoListInfo.TodoItem
     @State private var showNotificationExpiredDialog = false
@@ -132,10 +133,12 @@ struct AddEditTodoView: View {
                         .frame(height:80)
                 }
                 
-                Section(header: Text("广告")) {
-                    NativeContentView()
-                        .padding(.top)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                if store.purchasedProd.count == 0 {
+                    Section(header: Text("广告")) {
+                        NativeContentView()
+                            .padding(.top)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    }
                 }
             }
             .navigationTitle(Text("写日记"))
@@ -254,5 +257,6 @@ struct AddEditTodoView_Previews: PreviewProvider {
         AddEditTodoView(
             todoItem: TodoListInfo.TodoItem()
         )
+        .environmentObject(Store())
     }
 }

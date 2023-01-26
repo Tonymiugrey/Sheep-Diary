@@ -397,10 +397,9 @@
 			};
 			buildConfigurationList = 41B221A3295DB6B400B55487 /* Build configuration list for PBXProject "Sheep" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = zh-Hans;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				"zh-Hans",
 				"zh-Hant",
 				Base,

@@ -10,6 +10,7 @@ import StoreKit
 
 struct TodoListView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
+    @EnvironmentObject var store: Store
     @State var searchText = ""
     @State var isShowingDeleteItemsConfirmationDialog = false
     @State var showEditingPage = false
@@ -59,7 +60,10 @@ struct TodoListView: View {
                                 .lineSpacing(5)
                         }
                         .padding(.bottom, 120)
-                        SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-6106285619802028/5734478761")
+                        
+                        if store.purchasedProd.count == 0 {
+                            SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-6106285619802028/5734478761")
+                        }
                     }
                 } else {
                     ZStack {
@@ -69,6 +73,7 @@ struct TodoListView: View {
                                     DiaryContentView(todoItem: todoItem)
                                         .hiddenTabBar()
                                         .environmentObject(viewModel)
+                                        .environmentObject(store)
                                 } label: {
                                     ListItemView(todoItem: todoItem)
                                 }
@@ -78,7 +83,9 @@ struct TodoListView: View {
                             }
                         }
                         .searchable(text: searchBinding)
-                        SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-6106285619802028/5734478761")
+                        if store.purchasedProd.count == 0 {
+                            SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-6106285619802028/5734478761")
+                        }
                     }
                 }
             }
@@ -105,6 +112,7 @@ struct TodoListView: View {
                 }
                 .sheet(isPresented: self.$showEditingPage) {
                     AddEditTodoView(todoItem: TodoListInfo.TodoItem())
+                        .environmentObject(store)
                         .onDisappear() {
                             RandomRate(input: CGFloat.random(in: 0...35))
                         }
@@ -120,6 +128,7 @@ struct TodoListView_Previews: PreviewProvider {
         NavigationView{
             TodoListView()
                 .environmentObject(TodoListViewModel(testData: false))
+                .environmentObject(Store())
                 .tint(Color("SheepColor"))
         }
     }
