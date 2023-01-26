@@ -9,22 +9,23 @@ import SwiftUI
 import StoreKit
 
 struct NoSheepView: View {
-    private var title:LocalizedStringKey = "别羊"
-    private var subTitle1:LocalizedStringKey = "但是小羊还是很可爱的！"
-    private var subTitle2:LocalizedStringKey = "这里的“羊”仅仅指“阳”"
-    @State private var total = 0
-    @State private var once = 1
-    @State private var score = 0
-    @State private var totalScore = 0
-    @State private var isTapped = false
-    @State private var sheepScale = 0.5
-    @State private var isReached = false
-    @State private var isShow = true
-    @State private var noticeColor = Color.green
-    @State private var noticeTextColor = Color("GreenTextColor")
-    @State private var sheepStatus:LocalizedStringKey = "戳羊！别来！"
-    private var deviceHeight = UIScreen.main.bounds.height
-    private var deviceWidth = UIScreen.main.bounds.width
+    var title:LocalizedStringKey = "别羊"
+    var subTitle1:LocalizedStringKey = "但是小羊还是很可爱的！"
+    var subTitle2:LocalizedStringKey = "这里的“羊”仅仅指“阳”"
+    @State var total = 0
+    @State var once = 1
+    @State var score = 0
+    @State var totalScore = 0
+    @State var isTapped = false
+    @State var sheepScale = 0.5
+    @State var isReached = false
+    @Binding var isShowBinding:Bool
+    @State var isShow = true
+    @State var noticeColor = Color.green
+    @State var noticeTextColor = Color("GreenTextColor")
+    @State var sheepStatus:LocalizedStringKey = "戳羊！别来！"
+    var deviceHeight = UIScreen.main.bounds.height
+    var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
     @State var difficulty = false
     @State var reactTime = 0.2
@@ -116,7 +117,11 @@ struct NoSheepView: View {
                         .opacity(isReached ? 0 : 1)
                         .animation(.easeInOut(duration: 1.8), value: isReached)
                         .onReceive(timer, perform: { _ in
-                            if isShow{
+                            print("----fromNSV----")
+                            print(isShow)
+                            print(isShowBinding)
+                            if isShowBinding && isShow {
+                                isShow = true
                                 if sheepScale <= 2{
                                     if isTapped {
                                         if sheepScale >= 0.25 && sheepScale < 1.05 {
@@ -165,6 +170,7 @@ struct NoSheepView: View {
                                     
                                 }
                             } else {
+                                isShow = false
                                 noticeColor = Color("SheepColor")
                                 sheepStatus = "点击这里继续"
                                 noticeTextColor = Color("YellowTextColor")
@@ -274,14 +280,12 @@ struct NoSheepView: View {
             .background(.linearGradient(colors: [Color("NoSheepBG1"),Color("NoSheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onDisappear() {
-            isShow = false
-        }
     }
 }
 
 struct NoSheepView_Previews: PreviewProvider {
+    @State static var isShow = false
     static var previews: some View {
-        NoSheepView()
+        NoSheepView(isShowBinding: $isShow)
     }
 }

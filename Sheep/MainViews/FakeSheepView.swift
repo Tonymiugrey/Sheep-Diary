@@ -14,7 +14,7 @@ struct FakeSheepView: View {
     @State private var total = 0
     @State private var once = 1
     @State private var isTapped = false
-    @State private var isShow = true
+    @State var isShow = true
     @State private var sheepScale = CGFloat.random(in: (0.4)...(1.3))
     private var deviceHeight = UIScreen.main.bounds.height
     private var deviceWidth = UIScreen.main.bounds.width

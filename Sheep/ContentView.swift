@@ -123,34 +123,29 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            NoSheepView()
+            NavigationView {
+                TodoListView()
+                    .showTabBar()
+                    .environmentObject(TodoListViewModel())
+                    .environmentObject(Store())
+            }
                 .tabItem {
                     //修改未选择的项的颜色
-                    Label("别羊", systemImage: "shield.lefthalf.filled")
+                    Label("小羊日记", systemImage: "note.text")
                 }
-                .onAppear() {
-                    color = Color("NoSheepColor")
-                }
-                .tag(1)
-            FakeSheepView()
-                .tabItem { Label("幻羊", systemImage: "ellipsis.bubble.fill").tint(Color("FakeSheepColor1")) }
-                .onAppear() {
-                    color = Color("FakeSheepColor")
-                }
-                .tag(2)
-            SheepView()
-                .showTabBar()
                 .onAppear() {
                     color = Color("SheepColor")
-                    RandomRate(input: CGFloat.random(in: 0...65))
                 }
-                .tabItem { Label("羊了", systemImage: "facemask.fill") }
-                .tag(3)
-        //    if hour >= 22 || hour <= 6 {
-               // SleepSheepView()
-                  //  .tabItem { Label("数羊", systemImage: "tray.and.arrow.down.fill") }
-                   // .tag(4)
-        //    }
+                .tag(1)
+            RelaxView()
+                .tint(Color("SheepColor"))
+                .tabItem {
+                    Label("放松", systemImage: "face.smiling.inverse")
+                }
+                .onAppear() {
+                    color = Color("SheepColor")
+                }
+                .tag(5)
             AboutView()
                 .environmentObject(store)
                 .tint(Color("SheepColor"))

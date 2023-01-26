@@ -78,7 +78,7 @@ struct SheepView: View {
                 .foregroundColor((Color("SheepColor1")))
                 .frame(width: deviceWidth, alignment: .leading)
                 .padding(.leading, deviceWidth/10)
-                .padding(.top, -deviceHeight/5.3)
+                .padding(.top, -deviceHeight/8)
                 
                 VStack {
                     Image("Sheep")
@@ -99,29 +99,10 @@ struct SheepView: View {
                             }
                         }
                 }
-                .padding(.top, deviceHeight/32)
-                .padding(.bottom,deviceHeight/8)
+                .padding(.top, deviceHeight/10)
+                .padding(.bottom,deviceHeight/5)
                 
                 VStack{
-                    NavigationLink {
-                        TodoListView()
-                            .showTabBar()
-                            .environmentObject(TodoListViewModel(testData: false))
-                            .environmentObject(Store())
-                            .tint(Color("SheepColor"))
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: deviceWidth-160, height: 60)
-                                .foregroundColor(Color("SheepColor"))
-                            Text("小羊日记")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("DiaryButtonText"))
-                        }
-                    }
-                    .padding(.bottom)
-                    
                     Text("撸羊\(total)次")
                         .font(.title2)
                         .fontWeight(.semibold)
@@ -129,7 +110,7 @@ struct SheepView: View {
                         .animation(.easeInOut(duration: 0.4), value: total)
                         .foregroundStyle(.thickMaterial)
                 }
-                .padding(.bottom, -deviceHeight/2)
+                .padding(.bottom, -deviceHeight/4)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.linearGradient(colors: [Color("SheepBG1"),Color("SheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
@@ -148,6 +129,5 @@ struct SheepView: View {
 struct SheepView_Previews: PreviewProvider {
     static var previews: some View {
         SheepView()
-            .previewDevice("iPad Air (5th generation)")
     }
 }
