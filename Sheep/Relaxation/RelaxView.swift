@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RelaxView: View {
+    @EnvironmentObject var tabBarColor: TabBarColor
     @State var pickerValue = 0
     @State var isShow = true
     var deviceHeight = UIScreen.main.bounds.height
@@ -16,9 +17,19 @@ struct RelaxView: View {
         ZStack {
             SheepView()
                 .opacity(pickerValue == 2 ? 1.0 : 0.0)
+                .onChange(of: pickerValue, perform: { value in
+                    if value == 2 {
+                        tabBarColor.color = Color("SheepColor")
+                    }
+                })
             
             FakeSheepView()
                 .opacity(pickerValue == 1 ? 1.0 : 0.0)
+                .onChange(of: pickerValue, perform: { value in
+                    if value == 1 {
+                        tabBarColor.color = Color("FakeSheepColor")
+                    }
+                })
             
             NoSheepView(isShowBinding: $isShow)
                 .opacity(pickerValue == 0 ? 1.0 : 0.0)
@@ -28,21 +39,34 @@ struct RelaxView: View {
                         isShow = false
                     } else {
                         isShow = true
+                        tabBarColor.color = Color("NoSheepColor")
                     }
                 })
 
             
             Picker(selection: $pickerValue, label: Text("Picker")) {
-                Text("1")
+                Text("别羊")
                     .tag(0)
-                Text("1").tag(1)
-                Text("2").tag(2)
+                Text("幻羊")
+                    .tag(1)
+                Text("羊了")
+                    .tag(2)
             }
             .pickerStyle(.segmented)
             .background(.thinMaterial)
             .cornerRadius(8)
-            .padding(.all)
+            .padding(.horizontal)
             .padding(.top, deviceHeight/1.3)
+        }
+        .onAppear() {
+            if pickerValue == 0 {
+                isShow = true
+                tabBarColor.color = Color("NoSheepColor")
+            } else if pickerValue == 1 {
+                tabBarColor.color = Color("FakeSheepColor")
+            } else if pickerValue == 2 {
+                tabBarColor.color = Color("SheepColor")
+            }
         }
         .onDisappear() {
             isShow = false
@@ -53,5 +77,6 @@ struct RelaxView: View {
 struct RelaxView_Previews: PreviewProvider {
     static var previews: some View {
         RelaxView()
+            .environmentObject(TabBarColor())
     }
 }

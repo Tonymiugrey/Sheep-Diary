@@ -10,6 +10,7 @@
           "red" : "0.143"
         }
       },
+      "display-gamut" : "sRGB",
       "idiom" : "universal"
     },
     {
@@ -28,6 +29,39 @@
           "red" : "0.627"
         }
       },
+      "display-gamut" : "sRGB",
+      "idiom" : "universal"
+    },
+    {
+      "color" : {
+        "color-space" : "display-p3",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.487",
+          "green" : "0.342",
+          "red" : "0.198"
+        }
+      },
+      "display-gamut" : "display-P3",
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "color-space" : "display-p3",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.990",
+          "green" : "0.917",
+          "red" : "0.693"
+        }
+      },
+      "display-gamut" : "display-P3",
       "idiom" : "universal"
     }
   ],

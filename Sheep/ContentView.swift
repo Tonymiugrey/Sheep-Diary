@@ -102,8 +102,13 @@ extension View {
     }
 }
 
+
+class TabBarColor: ObservableObject {
+    @Published var color: Color = Color("SheepColor")
+}
+
 struct ContentView: View {
-    @State var color = Color("NoSheepColor")
+    @EnvironmentObject var tabBarColor: TabBarColor
     @State var reviewHasShown = false
     
     @StateObject var store: Store = Store()
@@ -134,38 +139,41 @@ struct ContentView: View {
                     Label("小羊日记", systemImage: "note.text")
                 }
                 .onAppear() {
-                    color = Color("SheepColor")
+                    tabBarColor.color = Color("SheepColor")
                 }
-                .tag(1)
+                .tag(0)
             RelaxView()
+                .environmentObject(tabBarColor)
                 .tint(Color("SheepColor"))
                 .tabItem {
-                    Label("放松", systemImage: "face.smiling.inverse")
+                    Label("放松", systemImage: "face.smiling") // TODO: 本地化
                 }
-                .onAppear() {
-                    color = Color("SheepColor")
-                }
-                .tag(5)
+                .tag(1)
             AboutView()
                 .environmentObject(store)
                 .tint(Color("SheepColor"))
                 .tabItem {
-                    Label("关于", systemImage: "info.circle.fill")
+                    Label("关于", systemImage: "info.circle")
                 }
                 .onAppear() {
-                    color = Color("SheepColor")
+                    tabBarColor.color = Color("SheepColor")
                 }
-                .tag(5)
+                .tag(2)
         
         }
-        .tint(color)
+        .tint(tabBarColor.color)
         //.animation(.easeInOut, value: color)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().preferredColorScheme(.light).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-        ContentView().previewDevice("iPad Air (5th generation)").preferredColorScheme(.light).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+            .preferredColorScheme(.light)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(TabBarColor())
+        ContentView().previewDevice("iPad Air (5th generation)")
+            .preferredColorScheme(.light)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)            .environmentObject(TabBarColor())
     }
 }

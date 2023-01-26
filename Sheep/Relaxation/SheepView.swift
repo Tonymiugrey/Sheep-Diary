@@ -15,12 +15,16 @@ struct SheepView: View {
     @State var total = 0
     @State var once = 1
     @State var isTapped = false
+    @State var isMoving = false
     @State var isShow = true
     @State var sheepScale = 1.3
     var deviceHeight = UIScreen.main.bounds.height
     var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
     
+    private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    @State var wordDuration:CFloat = 0.0
+    var wordList = ["冷静呀", "慢慢点击有助于放松哦", "可以去小羊日记里写一写感受", "如果累了就休息一下吧", "别怕，会没事的", "你可以的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"] // TODO: 本地化
     
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
@@ -61,7 +65,7 @@ struct SheepView: View {
                             .fullScreenCover(isPresented: $showSharingView)
                             {
                                 ShareContentView(viewToShot: SheepShare(times: total)
-                                    .environmentObject(TodoListViewModel(testData: false)), title: "羊了 - 分享自 别羊App")
+                                    .environmentObject(TodoListViewModel(testData: false)), title: "羊了 - 分享自 小羊日记App")
                                 .foregroundColor(Color("TextColor"))
                             }
                         }
@@ -88,29 +92,44 @@ struct SheepView: View {
                         .scaleEffect(isTapped ? sheepScale - 0.2 : sheepScale)
                         .animation(.easeInOut(duration: 0.2), value: isTapped)
                         .onTapGesture {
-                            let impactLight = UIImpactFeedbackGenerator(style: .light)
-                            impactLight.impactOccurred()
-                            total += once
-                            withAnimation {
-                                isTapped.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    self.isTapped.toggle()
-                                }
+                            if isMoving == false {
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
+                                total += once
+                                withAnimation {
+                                    isTapped.toggle()
+                                    isMoving.toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        self.isTapped.toggle()
+                                    }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                                        self.isMoving.toggle()
+                                    }
+                            }
                             }
                         }
                 }
-                .padding(.top, deviceHeight/10)
-                .padding(.bottom,deviceHeight/5)
+                .padding(.top, deviceHeight/7)
+                .padding(.bottom,deviceHeight/7)
                 
-                VStack{
+                VStack(spacing: 5){
+                    Text(LocalizedStringKey(wordList[Int(wordDuration)]))
+                        .font(.title2)
+                        .fontWeight(.semibold)
                     Text("撸羊\(total)次")
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .foregroundColor(Color("SheepColor2"))
-                        .animation(.easeInOut(duration: 0.4), value: total)
-                        .foregroundStyle(.thickMaterial)
                 }
+                .foregroundColor(Color("SheepColor2"))
+                .animation(.easeInOut(duration: 0.4))
                 .padding(.bottom, -deviceHeight/4)
+                .onReceive(timer, perform: { _ in
+                    if wordDuration >= 8.9 {
+                        wordDuration = 0
+                    } else {
+                        wordDuration += 0.015
+                    }
+                })
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.linearGradient(colors: [Color("SheepBG1"),Color("SheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))

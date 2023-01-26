@@ -35,7 +35,7 @@ struct SheepApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .tint(Color("AccentColor"))
+                .environmentObject(TabBarColor())
         }
     }
 }

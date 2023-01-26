@@ -14,6 +14,7 @@ struct FakeSheepView: View {
     @State private var total = 0
     @State private var once = 1
     @State private var isTapped = false
+    @State private var isMoving = false
     @State var isShow = true
     @State private var sheepScale = CGFloat.random(in: (0.4)...(1.3))
     private var deviceHeight = UIScreen.main.bounds.height
@@ -22,9 +23,8 @@ struct FakeSheepView: View {
     let generator = UINotificationFeedbackGenerator()
     
     @State var reviewHasShown = false
-    func RandomRate(input: CGFloat) {
-        let luckyNum = input.truncatingRemainder(dividingBy: 7)
-        if luckyNum >= 6 && reviewHasShown == false {
+    func RandomRate() {
+        if total == 100 && reviewHasShown == false {
             print("Please Rate")
             reviewHasShown = true
             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
@@ -60,49 +60,61 @@ struct FakeSheepView: View {
                             .fullScreenCover(isPresented: $showSharingView)
                             {
                                 ShareContentView(viewToShot: FakeSheepShare(times: total)
-                                    .environmentObject(TodoListViewModel(testData: false)), title: "幻羊 - 分享自 别羊App")
+                                    .environmentObject(TodoListViewModel(testData: false)), title: "幻羊 - 分享自 小羊日记App")
                                 .foregroundColor(Color("TextColor"))
                             }
                         }
+                        
                         Text(subTitle)
                             .font(.title3)
                             .fontWeight(.medium)
                     }
+                    
                     Spacer()
                 }
                 .foregroundColor((Color("FakeSheepColor1")))
                 .frame(width: deviceWidth, alignment: .leading)
                 .padding(.leading, deviceWidth/10)
                 .padding(.top, deviceHeight/20)
-                //+ CGFloat.random(in: -deviceWidth/2.4...deviceWidth/3.5)
-                //+ CGFloat.random(in: -deviceHeight/5...deviceHeight/5.5)
-                Image("Sheep")
-                    .resizable()
-                    .scaledToFit()
-                    .position(x: deviceWidth/3 + CGFloat.random(in: -deviceWidth/2.2...deviceWidth/3.8), y: deviceHeight/3 + CGFloat.random(in: -deviceHeight/5...deviceHeight/5.5)  )
-                    .frame(width: 200)
-                    .scaleEffect(isTapped ? sheepScale-0.2 : sheepScale)
-                    .animation(.easeInOut(duration: 0.2))
-                    .onTapGesture {
-                        self.generator.notificationOccurred(.warning)
-                        total += once
-                        withAnimation {
-                            isTapped.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                self.isTapped.toggle()
-                                sheepScale = CGFloat.random(in: (0.4)...(1.1))
+
+                ZStack {
+                    Image("Sheep") // Sheep 0
+                        .resizable()
+                        .scaledToFit()
+                        .position(x: deviceWidth/3 + CGFloat.random(in: -deviceWidth/2.2...deviceWidth/3.8), y: deviceHeight/3 + CGFloat.random(in: -deviceHeight/5...deviceHeight/5.5))
+                        .frame(width: 200)
+                        .scaleEffect(isTapped ? sheepScale - 0.2 : sheepScale)
+                        .opacity(isMoving ? 0.4 : 1)
+                        .blur(radius: isMoving ? 5 : 0)
+                        .animation(.easeInOut(duration: 0.2))
+                        .onTapGesture {
+                            if isMoving == false {
+                                self.generator.notificationOccurred(.warning)
+                                total += once
+                                RandomRate()
+                                withAnimation {
+                                    isTapped.toggle()
+                                    isMoving.toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                                        isTapped.toggle()
+                                        sheepScale = CGFloat.random(in: (0.4)...(1.1))
+                                    }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        isMoving.toggle()
+                                    }
+                                }
                             }
+                            
                         }
-                    }
+                }
                 
                 Text("戳羊\(total)次")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("FakeSheepColor2"))
-                    .padding(.bottom, 68.0)
+                    .padding(.bottom, deviceHeight/10)
                     .animation(.easeInOut(duration: 0.4), value: total)
                     .opacity(0.7)
-                    .foregroundStyle(.thickMaterial)
                 
             }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)

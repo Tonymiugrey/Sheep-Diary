@@ -136,40 +136,41 @@ struct AboutView: View {
                         Text("隐私政策")
                     }
                 }
-                Section("支持作者") {
-                    Text("我在应用中加入了广告，以支撑我的后续开发。如果您觉得这个App还不错的话，可以点击下方的内购按钮去除广告。感谢支持！")
-                    if store.Prod.count != 0 {
-                        ForEach(store.Prod) { prod in
-                            IAPButton(product: prod)
-                        }
-                    } else if store.Prod.count == 0 && store.purchasedProd.count == 0 {
-                        Button {
-                            
-                        } label: {
-                            Text("应用内购买项目暂时不可用") // 本地化
-                        }
-                        .disabled(true)
-                    } else {
-                        Button {
-                            
-                        } label: {
-                            Text("感谢支持！广告已移除！重启App后生效") // 本地化
-                                .bold()
-                        }
-                        .disabled(true)
-
-                    }
-                    
-                    if store.Prod.count != 0 && store.purchasedProd.count == 0 {
-                        Button("恢复已购项目", action: {
-                            Task {
-                                //This call displays a system prompt that asks users to authenticate with their App Store credentials.
-                                //Call this function only in response to an explicit user action, such as tapping a button.
-                                try? await AppStore.sync()
-                            }
-                        })
-                    }
-                }
+                
+//                Section("支持作者") {
+//                    Text("我在应用中加入了广告，以支撑我的后续开发。如果您觉得这个App还不错的话，可以点击下方的内购按钮去除广告。感谢支持！")
+//                    if store.Prod.count != 0 {
+//                        ForEach(store.Prod) { prod in
+//                            IAPButton(product: prod)
+//                        }
+//                    } else if store.Prod.count == 0 && store.purchasedProd.count == 0 {
+//                        Button {
+//
+//                        } label: {
+//                            Text("应用内购买项目暂时不可用") // 本地化
+//                        }
+//                        .disabled(true)
+//                    } else {
+//                        Button {
+//
+//                        } label: {
+//                            Text("感谢支持！广告已移除！重启App后生效") // 本地化
+//                                .bold()
+//                        }
+//                        .disabled(true)
+//
+//                    }
+//
+//                    if store.Prod.count != 0 && store.purchasedProd.count == 0 {
+//                        Button("恢复已购项目", action: {
+//                            Task {
+//                                //This call displays a system prompt that asks users to authenticate with their App Store credentials.
+//                                //Call this function only in response to an explicit user action, such as tapping a button.
+//                                try? await AppStore.sync()
+//                            }
+//                        })
+//                    }
+//                }
                 
                 Section {
                     Button {

@@ -25,7 +25,7 @@ struct SheepShare: View {
                     .font(.title2)
                     .fontWeight(.heavy)
                     .padding(.bottom, 1)
-                Label("该内容为用户自行分享，与“别羊”及其开发者无关。请谨慎辨别内容真假！", systemImage: "exclamationmark.triangle.fill")
+                Label("该内容为用户自行分享，与“小羊日记”及其开发者无关。请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
                     .font(.headline)
             }
             .frame(width: deviceWidth/1.1, alignment: .leading)
@@ -37,7 +37,7 @@ struct SheepShare: View {
                 VStack(alignment: .leading, spacing: 2) {
                     HStack {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("分享自 别羊App")
+                            Text("分享自 小羊日记App")
                                 .fontWeight(.medium)
                             
                             if viewModel.todoListIsEmpty {
@@ -104,7 +104,7 @@ struct SheepShare: View {
                 
                 VStack {
                     VStack {
-                        Text("我在“别羊”里撸了\(times)次小羊")
+                        Text("我在“小羊日记”里撸了\(times)次小羊")
                             .font(.title2)
                             .fontWeight(.medium)
                             .padding(.bottom, 1)
@@ -120,7 +120,7 @@ struct SheepShare: View {
                             .frame(height: 180)
                             .opacity(0.9)
                             .padding(.horizontal, 15.0)
-                        Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
+                        Text("可以用“小羊日记”App\n记录并分享感染期间的身体状况和应对方法哦")
                             .fontWeight(.medium)
                             .lineLimit(5)
                             .frame(height: 180)
@@ -141,12 +141,13 @@ struct SheepShare: View {
                         .scaledToFill()
                         .frame(width: 60, height: 60)
                         .cornerRadius(12)
-                    VStack(alignment: .leading) {
-                        Text("别羊")
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("小羊日记")
                             .font(.title2)
                             .fontWeight(.black)
-                        Text("赛博羊木鱼 症状日记本")
+                        Text("症状日记本 压力释放所")
                             .font(.subheadline)
+                            .fontWeight(.medium)
                     }
                     Spacer()
                 }

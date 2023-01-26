@@ -23,21 +23,19 @@ struct NoSheepView: View {
     @State var isShow = true
     @State var noticeColor = Color.green
     @State var noticeTextColor = Color("GreenTextColor")
-    @State var sheepStatus:LocalizedStringKey = "戳羊！别来！"
+    @State var sheepStatus:LocalizedStringKey = "慢慢戳羊，保持距离！"  // TODO: 本地化
     var deviceHeight = UIScreen.main.bounds.height
     var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
-    @State var difficulty = false
-    @State var reactTime = 0.2
-    @State var stage1MoveBack = 0.04
-    @State var stage2MoveBack = 0.05
+    @State var reactTime = 0.3
+    @State var stage1MoveBack = 0.02
+    @State var stage2MoveBack = 0.04
     @State var stage3MoveBack = 0.08
-    @State var speed = 0.045
+    @State var speed = 0.04
     
     @State var reviewHasShown = false
-    func RandomRate(input: CGFloat) {
-        let luckyNum = input.truncatingRemainder(dividingBy: 7)
-        if luckyNum >= 6 && reviewHasShown == false {
+    func RandomRate() {
+        if total == 150 && reviewHasShown == false {
             print("Please Rate")
             reviewHasShown = true
             isShow = false
@@ -48,6 +46,8 @@ struct NoSheepView: View {
     }
     
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
+    @State var wordDuration:CFloat = 0.0
+    var wordList = ["冷静呀","记得做好防护", "慢慢点击有助于放松哦", "别怕，会没事的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"] // TODO: 本地化
 
     var body: some View {
         NavigationView {
@@ -64,16 +64,6 @@ struct NoSheepView: View {
                             
                             HStack(spacing: 22) {
                                 Button {
-                                    self.difficulty.toggle()
-                                    let impactLight = UIImpactFeedbackGenerator(style: .light)
-                                    impactLight.impactOccurred()
-                                } label: {
-                                    Text(difficulty ? "困难" : "简单")
-                                }
-                                .tint(Color("NoSheepColor1"))
-                                .buttonStyle(.bordered)
-                                
-                                Button {
                                     isShow = false
                                     self.showSharingView = true
                                     let impactLight = UIImpactFeedbackGenerator(style: .light)
@@ -88,7 +78,7 @@ struct NoSheepView: View {
                                 .fullScreenCover(isPresented: $showSharingView)
                                 {
                                     ShareContentView(viewToShot: NoSheepShare(times: total, totalScore: totalScore)
-                                        .environmentObject(TodoListViewModel(testData: false)), title: "别羊🙏🏻 - 分享自 别羊App")
+                                        .environmentObject(TodoListViewModel(testData: false)), title: "别羊🙏🏻 - 分享自 小羊日记App")
                                     .foregroundColor(Color("TextColor"))
                                 }
                             }
@@ -117,9 +107,11 @@ struct NoSheepView: View {
                         .opacity(isReached ? 0 : 1)
                         .animation(.easeInOut(duration: 1.8), value: isReached)
                         .onReceive(timer, perform: { _ in
-                            print("----fromNSV----")
-                            print(isShow)
-                            print(isShowBinding)
+                            if wordDuration >= 6.9 {
+                                wordDuration = 0
+                            } else {
+                                wordDuration += 0.015
+                            }
                             if isShowBinding && isShow {
                                 isShow = true
                                 if sheepScale <= 2{
@@ -138,17 +130,17 @@ struct NoSheepView: View {
                                         sheepScale += speed
                                         if sheepScale >= 0.25 && sheepScale < 1.25 {
                                             noticeColor = Color.green
-                                            sheepStatus = "戳羊！别来！"
+                                            sheepStatus = "慢慢戳羊，保持距离！" // TODO: 本地化
                                             noticeTextColor = Color("GreenTextColor")
                                         }
                                         if sheepScale >= 1.25 && sheepScale < 1.7 {
                                             noticeColor = Color.yellow
-                                            sheepStatus = "小心！别让羊来！"
+                                            sheepStatus = "不着急，慢慢戳！" // TODO: 本地化
                                             noticeTextColor = Color("YellowTextColor")
                                         }
                                         if sheepScale >= 1.7 && sheepScale < 2 {
                                             noticeColor = Color.red
-                                            sheepStatus = "危险！别让羊来！！"
+                                            sheepStatus = "别慌！沉住气！" // TODO: 本地化
                                             noticeTextColor = Color("RedTextColor")
                                         }
                                     }
@@ -157,7 +149,7 @@ struct NoSheepView: View {
                                     noticeTextColor = Color(.black)
                                     let impactHeavy = UIImpactFeedbackGenerator(style: .medium)
                                     impactHeavy.impactOccurred()
-                                    sheepStatus = "失败了……"
+                                    sheepStatus = "戳不动？静下心慢慢戳吧" // TODO: 本地化
                                     isReached = true
                                     sheepScale += 1
                                     if totalScore > 0 {
@@ -178,35 +170,21 @@ struct NoSheepView: View {
                         })
                         .animation(.easeOut, value: sheepScale)
                         .onTapGesture {
-                            let impactLight = UIImpactFeedbackGenerator(style: .light)
-                            impactLight.impactOccurred()
-                            
-                            if difficulty {
-                                reactTime = 0.3
-                                speed = 0.075
-                                stage1MoveBack = 0.01
-                                stage2MoveBack = 0.027
-                                stage3MoveBack = 0.053
-                            } else {
-                                reactTime = 0.2
-                                speed = 0.045
-                                stage1MoveBack = 0.047
-                                stage2MoveBack = 0.07
-                                stage3MoveBack = 0.1
-                            }
-                            
                             if isShow {
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
+                                
                                 total += once
                                 if sheepScale >= 0.20 && sheepScale < 1.25 {
-                                    score = 3
-                                    totalScore += score
-                                }
-                                if sheepScale >= 1.25 && sheepScale < 1.7 {
                                     score = 10
                                     totalScore += score
                                 }
+                                if sheepScale >= 1.25 && sheepScale < 1.7 {
+                                    score = 5
+                                    totalScore += score
+                                }
                                 if sheepScale >= 1.7 && sheepScale < 2 {
-                                    score = 20
+                                    score = 1
                                     totalScore += score
                                 }
                                 withAnimation {
@@ -215,6 +193,7 @@ struct NoSheepView: View {
                                         self.isTapped.toggle()
                                     }
                                 }
+                                RandomRate()
                             }
                         }
                 }
@@ -223,23 +202,13 @@ struct NoSheepView: View {
                 
                 VStack {
                     ZStack {
-                        if sheepScale < 2  {
-                            Text("\(score)分")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("NoSheepColor2"))
-                                .padding(.bottom, 11.0)
-                                .opacity(isTapped ? 0.7 : 0)
-                                .animation(.easeInOut(duration: 0.05), value: totalScore)
-                        } else if sheepScale >= 2 {
-                            Text("戳不动？不妨静下心来慢慢戳吧~")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("NoSheepColor2"))
-                                .padding(.bottom, 11.0)
-                                .opacity(sheepScale >= 2.0 ? 0.7 : 0)
-                                .animation(.easeInOut(duration: 0.4), value: sheepScale)
-                        }
+                        Text(LocalizedStringKey(wordList[Int(wordDuration)]))
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("NoSheepColor2"))
+                            .padding(.bottom, 11.0)
+                            .opacity(0.7)
+                        
                     }
                     .animation(.easeInOut)
                     
@@ -264,7 +233,7 @@ struct NoSheepView: View {
                     }
                     .disabled(isShow)
                     
-                    Text("戳羊\(total)次，总分\(totalScore)")
+                    Text("戳羊\(total)次，镇定值\(totalScore)") // TODO: 本地化
                         .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("NoSheepColor2"))
@@ -284,7 +253,7 @@ struct NoSheepView: View {
 }
 
 struct NoSheepView_Previews: PreviewProvider {
-    @State static var isShow = false
+    @State static var isShow = true
     static var previews: some View {
         NoSheepView(isShowBinding: $isShow)
     }

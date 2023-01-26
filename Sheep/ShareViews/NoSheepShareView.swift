@@ -32,7 +32,7 @@ struct NoSheepShare: View {
                 VStack(alignment: .leading, spacing: 2) {
                     HStack {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("分享自 别羊App")
+                            Text("分享自 小羊日记App")
                                 .fontWeight(.medium)
                             
                             Text("不当小羊人 💪🏻")
@@ -55,10 +55,10 @@ struct NoSheepShare: View {
                 
                 VStack {
                     VStack {
-                        Text("我在“别羊”里戳戳了\(times)次小羊")
+                        Text("我在“小羊日记”里戳戳了\(times)次小羊")
                             .font(.title2)
                             .fontWeight(.medium)
-                        Text("获得了\(totalScore)分")
+                        Text("镇定值为\(totalScore)分")
                             .font(.title2)
                             .fontWeight(.medium)
                             .padding(.bottom, 2)
@@ -75,7 +75,7 @@ struct NoSheepShare: View {
                             .frame(height: 180)
                             .opacity(0.9)
                             .padding(.horizontal, 15.0)
-                        Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
+                        Text("可以用“小羊日记”App\n记录并分享感染期间的身体状况和应对方法哦")
                             .fontWeight(.medium)
                             .lineLimit(5)
                             .frame(height: 180)
@@ -97,11 +97,12 @@ struct NoSheepShare: View {
                         .frame(width: 60, height: 60)
                         .cornerRadius(12)
                     VStack(alignment: .leading) {
-                        Text("别羊")
+                        Text("小羊日记")
                             .font(.title2)
                             .fontWeight(.black)
-                        Text("赛博羊木鱼 症状日记本")
+                        Text("症状日记本 压力释放所")
                             .font(.subheadline)
+                            .fontWeight(.medium)
                     }
                     Spacer()
                 }

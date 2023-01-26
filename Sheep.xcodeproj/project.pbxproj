@@ -20,7 +20,6 @@
 		416EE110296B2FA4007C9CB7 /* NoSheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE10F296B2FA4007C9CB7 /* NoSheepShareView.swift */; };
 		416EE112296B2FDF007C9CB7 /* SheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE111296B2FDF007C9CB7 /* SheepShareView.swift */; };
 		416EE114296B2FF0007C9CB7 /* FakeSheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE113296B2FF0007C9CB7 /* FakeSheepShareView.swift */; };
-		416EE116296B2FFE007C9CB7 /* DiaryListShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416EE115296B2FFE007C9CB7 /* DiaryListShareView.swift */; };
 		417566A72965D79800BB118C /* NativeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417566A52965D79700BB118C /* NativeContentView.swift */; };
 		417566A82965D79800BB118C /* NativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 417566A62965D79700BB118C /* NativeAdView.xib */; };
 		417597CF2965BDA500A60844 /* BannerAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417597CE2965BDA500A60844 /* BannerAd.swift */; };
@@ -79,7 +78,6 @@
 		416EE10F296B2FA4007C9CB7 /* NoSheepShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSheepShareView.swift; sourceTree = "<group>"; };
 		416EE111296B2FDF007C9CB7 /* SheepShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepShareView.swift; sourceTree = "<group>"; };
 		416EE113296B2FF0007C9CB7 /* FakeSheepShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSheepShareView.swift; sourceTree = "<group>"; };
-		416EE115296B2FFE007C9CB7 /* DiaryListShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryListShareView.swift; sourceTree = "<group>"; };
 		417566A52965D79700BB118C /* NativeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativeContentView.swift; sourceTree = "<group>"; };
 		417566A62965D79700BB118C /* NativeAdView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeAdView.xib; sourceTree = "<group>"; };
 		417597CE2965BDA500A60844 /* BannerAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAd.swift; sourceTree = "<group>"; };
@@ -188,16 +186,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		41434A0F29632AC800ADAC31 /* MainViews */ = {
+		41434A0F29632AC800ADAC31 /* Relaxation */ = {
 			isa = PBXGroup;
 			children = (
 				41B221DB295DF8B300B55487 /* NoSheepView.swift */,
 				412EC85E29827372001BE34A /* RelaxView.swift */,
 				41B221DF295E82FD00B55487 /* SheepView.swift */,
 				41B221DD295DF91800B55487 /* FakeSheepView.swift */,
-				41C81B8D29799EF700A19267 /* AboutView.swift */,
 			);
-			path = MainViews;
+			path = Relaxation;
 			sourceTree = "<group>";
 		};
 		416EE10E296B2F80007C9CB7 /* ShareViews */ = {
@@ -207,7 +204,6 @@
 				416EE10F296B2FA4007C9CB7 /* NoSheepShareView.swift */,
 				416EE111296B2FDF007C9CB7 /* SheepShareView.swift */,
 				416EE113296B2FF0007C9CB7 /* FakeSheepShareView.swift */,
-				416EE115296B2FFE007C9CB7 /* DiaryListShareView.swift */,
 				41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */,
 			);
 			path = ShareViews;
@@ -253,7 +249,8 @@
 				416EE10E296B2F80007C9CB7 /* ShareViews */,
 				417597CD2965BD6D00A60844 /* Ads */,
 				4121B5B92965430D00518BD0 /* Info.plist */,
-				41434A0F29632AC800ADAC31 /* MainViews */,
+				41C81B8D29799EF700A19267 /* AboutView.swift */,
+				41434A0F29632AC800ADAC31 /* Relaxation */,
 				414349FF29632AB300ADAC31 /* Diary */,
 				41400A5F296002B500BA0948 /* SheepApp.swift */,
 				41400A61296002E400BA0948 /* Sheep.entitlements */,
@@ -494,7 +491,6 @@
 				417566A72965D79800BB118C /* NativeContentView.swift in Sources */,
 				41434A0A29632AB300ADAC31 /* TodoListInfo.swift in Sources */,
 				41434A0D29632AB300ADAC31 /* TodoListView.swift in Sources */,
-				416EE116296B2FFE007C9CB7 /* DiaryListShareView.swift in Sources */,
 				416EE114296B2FF0007C9CB7 /* FakeSheepShareView.swift in Sources */,
 				41400A60296002B500BA0948 /* SheepApp.swift in Sources */,
 				410ECC1829649C7800B511D3 /* DiaryContentView.swift in Sources */,
@@ -685,14 +681,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sheep/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "备用 小羊日记";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_CFBundleDisplayName = "小羊日记";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "需要授权相册权限才能保存图片至本地哦！";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App内的Google广告服务会利用这些信息向您展示个性化广告。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -729,14 +725,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Sheep/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "备用 小羊日记";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_CFBundleDisplayName = "小羊日记";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "需要授权相册权限才能保存图片至本地哦！";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "App内的Google广告服务会利用这些信息向您展示个性化广告。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
