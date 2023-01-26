@@ -12,11 +12,13 @@ import WrappingStack
 
 struct AddEditTodoView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
+    @EnvironmentObject var store: Store
     @Environment(\.presentationMode) var presentationMode
     @State var todoItem: TodoListInfo.TodoItem
     @State private var showNotificationExpiredDialog = false
     @State private var notificationIsNotAuthorized = false
     @State private var insertOrUpdateNotification = false
+    let generator = UINotificationFeedbackGenerator()
     
     let step = 0.1
     let range = 35.0...42.0
@@ -41,7 +43,7 @@ struct AddEditTodoView: View {
                     TextField("今天感觉怎么样？", text: $todoItem.feeling)
                 }
                 
-                Section(header: Text("核酸/抗原结果")) {
+                Section(header: Text("检测结果")) {
                     HStack {
                         Text("检测结果是")
                         Picker("检测结果是", selection: $todoItem.testResult) {
@@ -131,10 +133,12 @@ struct AddEditTodoView: View {
                         .frame(height:80)
                 }
                 
-                Section(header: Text("广告")) {
-                    NativeContentView()
-                        .padding(.top)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                if store.purchasedProd.count == 0 {
+                    Section(header: Text("广告")) {
+                        NativeContentView()
+                            .padding(.top)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+                    }
                 }
             }
             .navigationTitle(Text("写日记"))
@@ -149,7 +153,7 @@ struct AddEditTodoView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("完成") {
                         handleDonePressed()
-                        RandomRate(input: CGFloat.random(in: 0...35))
+                        self.generator.notificationOccurred(.success)
                     }
                     .disabled(todoItem.feeling.isEmpty || todoItem.symptom.allSatisfy({$0 == false}))
                 }
@@ -253,5 +257,6 @@ struct AddEditTodoView_Previews: PreviewProvider {
         AddEditTodoView(
             todoItem: TodoListInfo.TodoItem()
         )
+        .environmentObject(Store())
     }
 }

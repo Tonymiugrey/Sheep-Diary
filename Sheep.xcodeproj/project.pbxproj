@@ -40,7 +40,10 @@
 		41BDFB582973130D00859643 /* ScreenshotableView in Frameworks */ = {isa = PBXBuildFile; productRef = 41BDFB572973130D00859643 /* ScreenshotableView */; };
 		41C5FAAF2976F741004AAA53 /* DiaryShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */; };
 		41C5FAB12976FDD9004AAA53 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */; };
+		41C81B8E29799EF700A19267 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C81B8D29799EF700A19267 /* AboutView.swift */; };
 		41DC95D12967187A00E6499D /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC95D02967187A00E6499D /* ShareContentView.swift */; };
+		41FF6D76297EF24500607B74 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF6D75297EF24500607B74 /* IAPManager.swift */; };
+		41FF6D82297F8D2E00607B74 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF6D81297F8D2E00607B74 /* Products.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +101,12 @@
 		41B221DF295E82FD00B55487 /* SheepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepView.swift; sourceTree = "<group>"; };
 		41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryShareView.swift; sourceTree = "<group>"; };
 		41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		41C81B8C2979879800A19267 /* UpdateLog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UpdateLog.md; sourceTree = "<group>"; };
+		41C81B8D29799EF700A19267 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		41DC95D02967187A00E6499D /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
+		41FF6D75297EF24500607B74 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
+		41FF6D81297F8D2E00607B74 /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		41FF6D83297F8D9F00607B74 /* Products.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.storekit; sourceTree = "<group>"; };
 		B4F0F2F12CE42B23D3FA01FB /* Pods-Sheep.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sheep.debug.xcconfig"; path = "Target Support Files/Pods-Sheep/Pods-Sheep.debug.xcconfig"; sourceTree = "<group>"; };
 		B762D056DB33E36E4DD237DE /* libPods-Sheep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sheep.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -184,6 +192,7 @@
 				41B221DB295DF8B300B55487 /* NoSheepView.swift */,
 				41B221DF295E82FD00B55487 /* SheepView.swift */,
 				41B221DD295DF91800B55487 /* FakeSheepView.swift */,
+				41C81B8D29799EF700A19267 /* AboutView.swift */,
 			);
 			path = MainViews;
 			sourceTree = "<group>";
@@ -214,7 +223,6 @@
 		41B2219F295DB6B400B55487 = {
 			isa = PBXGroup;
 			children = (
-				41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */,
 				41B221AA295DB6B400B55487 /* Sheep */,
 				41B221C1295DB6B700B55487 /* SheepTests */,
 				41B221CB295DB6B700B55487 /* SheepUITests */,
@@ -237,6 +245,8 @@
 		41B221AA295DB6B400B55487 /* Sheep */ = {
 			isa = PBXGroup;
 			children = (
+				41E737FB297AC4AF008A3217 /* IAP */,
+				41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */,
 				416EE10E296B2F80007C9CB7 /* ShareViews */,
 				417597CD2965BD6D00A60844 /* Ads */,
 				4121B5B92965430D00518BD0 /* Info.plist */,
@@ -250,6 +260,7 @@
 				41B221B6295DB6B600B55487 /* Sheep.xcdatamodeld */,
 				41B221B1295DB6B600B55487 /* Preview Content */,
 				418A0E81297588AE00F02A3A /* Localizable.strings */,
+				41C81B8C2979879800A19267 /* UpdateLog.md */,
 			);
 			path = Sheep;
 			sourceTree = "<group>";
@@ -277,6 +288,16 @@
 				41B221CE295DB6B700B55487 /* SheepUITestsLaunchTests.swift */,
 			);
 			path = SheepUITests;
+			sourceTree = "<group>";
+		};
+		41E737FB297AC4AF008A3217 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				41FF6D81297F8D2E00607B74 /* Products.plist */,
+				41FF6D75297EF24500607B74 /* IAPManager.swift */,
+				41FF6D83297F8D9F00607B74 /* Products.storekit */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		BE6174B1DAF1C77BFB1D8B10 /* Pods */ = {
@@ -362,6 +383,7 @@
 				TargetAttributes = {
 					41B221A7295DB6B400B55487 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					41B221BD295DB6B700B55487 = {
 						CreatedOnToolsVersion = 14.2;
@@ -375,10 +397,9 @@
 			};
 			buildConfigurationList = 41B221A3295DB6B400B55487 /* Build configuration list for PBXProject "Sheep" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = zh-Hans;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				"zh-Hans",
 				"zh-Hant",
 				Base,
@@ -408,6 +429,7 @@
 			files = (
 				41B221B3295DB6B600B55487 /* Preview Assets.xcassets in Resources */,
 				418A0E7F297588AE00F02A3A /* Localizable.strings in Resources */,
+				41FF6D82297F8D2E00607B74 /* Products.plist in Resources */,
 				417566A82965D79800BB118C /* NativeAdView.xib in Resources */,
 				41C5FAB12976FDD9004AAA53 /* Launch Screen.storyboard in Resources */,
 				41B221B0295DB6B600B55487 /* Assets.xcassets in Resources */,
@@ -460,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FF6D76297EF24500607B74 /* IAPManager.swift in Sources */,
 				41C5FAAF2976F741004AAA53 /* DiaryShareView.swift in Sources */,
 				41434A0929632AB300ADAC31 /* TodoListViewModel.swift in Sources */,
 				41AE49FF29746F8F00A206C5 /* SymptonView.swift in Sources */,
@@ -473,6 +496,7 @@
 				41400A60296002B500BA0948 /* SheepApp.swift in Sources */,
 				410ECC1829649C7800B511D3 /* DiaryContentView.swift in Sources */,
 				41434A0C29632AB300ADAC31 /* AddEditTodoView.swift in Sources */,
+				41C81B8E29799EF700A19267 /* AboutView.swift in Sources */,
 				41B221B5295DB6B600B55487 /* Persistence.swift in Sources */,
 				416EE112296B2FDF007C9CB7 /* SheepShareView.swift in Sources */,
 				417597CF2965BDA500A60844 /* BannerAd.swift in Sources */,
@@ -654,9 +678,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;
@@ -684,6 +709,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
@@ -696,9 +722,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Sheep/Sheep.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Sheep/Preview Content\"";
 				DEVELOPMENT_TEAM = HEUZ3URRQ5;
 				ENABLE_PREVIEWS = YES;

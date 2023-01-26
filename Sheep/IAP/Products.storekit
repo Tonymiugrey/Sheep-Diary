@@ -1,0 +1,35 @@
+{
+  "identifier" : "B888BDCF",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6445503228",
+      "localizations" : [
+        {
+          "description" : "移除App內的所有廣告",
+          "displayName" : "去除廣告",
+          "locale" : "zh_CN"
+        }
+      ],
+      "productID" : "sheep.removeAd",
+      "referenceName" : "去除广告",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "1666275886",
+    "_developerTeamID" : "HEUZ3URRQ5",
+    "_lastSynchronizedDate" : 696230343.47627199
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}

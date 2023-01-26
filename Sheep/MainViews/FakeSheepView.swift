@@ -19,6 +19,7 @@ struct FakeSheepView: View {
     private var deviceHeight = UIScreen.main.bounds.height
     private var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
+    let generator = UINotificationFeedbackGenerator()
     
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
@@ -47,6 +48,8 @@ struct FakeSheepView: View {
                             
                             Button {
                                 self.showSharingView = true
+                                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                                impactLight.impactOccurred()
                             } label: {
                                 Image(systemName: "square.and.arrow.up.circle.fill")
                                     .resizable()
@@ -81,6 +84,7 @@ struct FakeSheepView: View {
                     .scaleEffect(isTapped ? sheepScale-0.2 : sheepScale)
                     .animation(.easeInOut(duration: 0.2))
                     .onTapGesture {
+                        self.generator.notificationOccurred(.warning)
                         total += once
                         withAnimation {
                             isTapped.toggle()

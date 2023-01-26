@@ -18,98 +18,115 @@ struct NoSheepShare: View {
 
     var body: some View {
         VStack {
-            Text("\(String(year)).\(month).\(day)")
-                .font(.title2)
-                .fontWeight(.heavy)
-                .frame(width: deviceWidth/1.1, alignment: .leading)
-                .foregroundColor(Color("NoSheepColor1"))
-                //.foregroundStyle(.regularMaterial)
-                .padding(.top, 52)
-                .padding(.leading)
+            VStack(alignment: .leading) {
+                Text("\(String(year)).\(month).\(day)")
+                    .font(.title2)
+                    .fontWeight(.heavy)
+            }
+            .frame(width: deviceWidth/1.1, alignment: .leading)
+            .foregroundColor(Color("NoSheepColor1"))
+            .padding(.top, 52)
+            .padding(.leading)
             
-            VStack(alignment: .leading, spacing: 2) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("分享自 别羊App")
+            VStack(spacing: 20) {
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text("分享自 别羊App")
+                                .fontWeight(.medium)
+                            
+                            Text("不当小羊人 💪🏻")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                        }
+                        Spacer()
+                        Image("Sheep")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 100, maxHeight: 100)
+                            .rotationEffect(.degrees(15))
+                            .offset(x:0, y:5)
+                    }
+                }
+                .padding(22)
+                .frame(width: deviceWidth/1.1)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                VStack {
+                    VStack {
+                        Text("我在“别羊”里戳戳了\(times)次小羊")
+                            .font(.title2)
                             .fontWeight(.medium)
-                        
-                        Text("不当小羊人 💪🏻")
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
+                        Text("获得了\(totalScore)分")
+                            .font(.title2)
+                            .fontWeight(.medium)
+                            .padding(.bottom, 2)
+                        Text("但小羊还是很可爱的")
+                            .font(.body)
+                        Text("这里的“羊”仅仅指“阳”")
+                            .font(.body)
+                    }
+                    .padding(.bottom)
+                    HStack {
+                        Image("SharingNoteImg")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 180)
+                            .opacity(0.9)
+                            .padding(.horizontal, 15.0)
+                        Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
+                            .fontWeight(.medium)
+                            .lineLimit(5)
+                            .frame(height: 180)
+                            .multilineTextAlignment(.center)
+                    }
+                }
+                .padding(22)
+                .frame(width: deviceWidth/1.1)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(.bottom, 42)
+            }
+            
+            VStack(spacing: 24) {
+                HStack(spacing: 12) {
+                    Image("Icon")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(12)
+                    VStack(alignment: .leading) {
+                        Text("别羊")
+                            .font(.title2)
+                            .fontWeight(.black)
+                        Text("赛博羊木鱼 症状日记本")
+                            .font(.subheadline)
                     }
                     Spacer()
-                    Image("Sheep")
+                }
+                .padding(22)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
+                
+                HStack(spacing: 32) {
+                    Spacer()
+                    Image("Store")
+                    Image("QRCode")
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: 100, maxHeight: 100)
-                        .rotationEffect(.degrees(15))
-                        .offset(x:0, y:5)
+                        .background(.thinMaterial)
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(12)
+                    Spacer()
                 }
-            }
-            .padding(22)
-            .frame(width: deviceWidth/1.1)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(.bottom, 12)
-            
-            VStack {
-                VStack {
-                    Text("我在“别羊”里戳戳了\(times)次小羊")
-                        .font(.title2)
-                        .fontWeight(.medium)
-                    Text("获得了\(totalScore)分")
-                        .font(.title2)
-                        .fontWeight(.medium)
-                        .padding(.bottom, 2)
-                    Text("但小羊还是很可爱的")
-                        .font(.body)
-                    Text("这里仅仅指 “新冠别来!”")
-                        .font(.body)
-                }
+                .padding(12)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
                 .padding(.bottom)
-                HStack {
-                    Image("SharingNoteImg")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(Color("TextColor"))
-                        .frame(width: 110)
-                        .opacity(0.90)
-                        .padding(.horizontal, 15.0)
-                    Text("可以用“别羊”App\n记录并分享新冠期间的身体状况和应对方法哦")
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.center)
-                }
             }
-            .padding(22)
-            .frame(width: deviceWidth/1.1)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .padding(.bottom, 42)
-            
-            HStack(spacing: 12) {
-                Image("Icon")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(12)
-                VStack(alignment: .leading) {
-                    Text("别羊")
-                        .font(.title2)
-                        .fontWeight(.black)
-                    Text("赛博羊木鱼 新冠日记本")
-                        .font(.subheadline)
-                }
-                Spacer()
-                Image("QRCode")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 55, height: 55)
-                    .cornerRadius(6)
-            }
-            .padding(22)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .frame(width: deviceWidth/1.1)
             
             Spacer(minLength: 60)
         }

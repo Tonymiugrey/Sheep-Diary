@@ -66,12 +66,13 @@ struct FakeSheepShare: View {
                     Image("SharingNoteImg")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(Color("TextColor"))
-                        .frame(width: 110)
-                        .opacity(0.90)
+                        .frame(height: 180)
+                        .opacity(0.9)
                         .padding(.horizontal, 15.0)
-                    Text("可以用“别羊”App\n记录并分享新冠期间的身体状况和应对方法哦")
+                    Text("可以用“别羊”App\n记录并分享感染期间的身体状况和应对方法哦")
                         .fontWeight(.medium)
+                        .lineLimit(5)
+                        .frame(height: 180)
                         .multilineTextAlignment(.center)
                 }
             }
@@ -81,30 +82,44 @@ struct FakeSheepShare: View {
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .padding(.bottom, 42)
             
-            HStack(spacing: 12) {
-                Image("Icon")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(12)
-                VStack(alignment: .leading) {
-                    Text("别羊")
-                        .font(.title2)
-                        .fontWeight(.black)
-                    Text("赛博羊木鱼 新冠日记本")
-                        .font(.subheadline)
+            VStack(spacing: 24) {
+                HStack(spacing: 12) {
+                    Image("Icon")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .cornerRadius(12)
+                    VStack(alignment: .leading) {
+                        Text("别羊")
+                            .font(.title2)
+                            .fontWeight(.black)
+                        Text("赛博羊木鱼 症状日记本")
+                            .font(.subheadline)
+                    }
+                    Spacer()
                 }
-                Spacer()
-                Image("QRCode")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 55, height: 55)
-                    .cornerRadius(6)
+                .padding(22)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
+                
+                HStack(spacing: 32) {
+                    Spacer()
+                    Image("Store")
+                    Image("QRCode")
+                        .resizable()
+                        .scaledToFit()
+                        .background(.thinMaterial)
+                        .frame(width: 90, height: 90)
+                        .cornerRadius(12)
+                    Spacer()
+                }
+                .padding(12)
+                .background(.thinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(width: deviceWidth/1.1)
+                .padding(.bottom)
             }
-            .padding(22)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .frame(width: deviceWidth/1.1)
             
             Spacer(minLength: 60)
         }

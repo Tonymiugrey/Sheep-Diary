@@ -103,7 +103,11 @@ extension View {
 }
 
 struct ContentView: View {
+    @State var color = Color("NoSheepColor")
     @State var reviewHasShown = false
+    
+    @StateObject var store: Store = Store()
+    
     func RandomRate(input: CGFloat) {
         //let luckyNum = input.truncatingRemainder(dividingBy: 7)
         if input == 43 && reviewHasShown == false {
@@ -124,13 +128,20 @@ struct ContentView: View {
                     //修改未选择的项的颜色
                     Label("别羊", systemImage: "shield.lefthalf.filled")
                 }
+                .onAppear() {
+                    color = Color("NoSheepColor")
+                }
                 .tag(1)
             FakeSheepView()
                 .tabItem { Label("幻羊", systemImage: "ellipsis.bubble.fill").tint(Color("FakeSheepColor1")) }
+                .onAppear() {
+                    color = Color("FakeSheepColor")
+                }
                 .tag(2)
             SheepView()
                 .showTabBar()
                 .onAppear() {
+                    color = Color("SheepColor")
                     RandomRate(input: CGFloat.random(in: 0...65))
                 }
                 .tabItem { Label("羊了", systemImage: "facemask.fill") }
@@ -140,12 +151,20 @@ struct ContentView: View {
                   //  .tabItem { Label("数羊", systemImage: "tray.and.arrow.down.fill") }
                    // .tag(4)
         //    }
+            AboutView()
+                .environmentObject(store)
+                .tint(Color("SheepColor"))
+                .tabItem {
+                    Label("关于", systemImage: "info.circle.fill")
+                }
+                .onAppear() {
+                    color = Color("SheepColor")
+                }
+                .tag(5)
         
         }
-        .tint(Color("MainColor"))
-        
-        
-        
+        .tint(color)
+        //.animation(.easeInOut, value: color)
     }
 }
 

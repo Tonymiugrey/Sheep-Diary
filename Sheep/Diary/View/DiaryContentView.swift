@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiaryContentView: View {
     @EnvironmentObject var viewModel: TodoListViewModel
+    @EnvironmentObject var store: Store
     let todoItem: TodoListInfo.TodoItem
     @State var symptonList:[String] = []
     @State var showEditingPage = false
@@ -95,16 +96,18 @@ struct DiaryContentView: View {
                         
                     }
                     
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("🪧 广告")
-                            .fontWeight(.semibold)
-                            .font(.title2)
-                        NativeContentView()
+                    if store.purchasedProd.count == 0 {
+                        VStack(alignment: .leading, spacing: 14) {
+                            Text("🪧 广告")
+                                .fontWeight(.semibold)
+                                .font(.title2)
+                            NativeContentView()
+                        }
+                            .padding(22)
+                            .frame(width: deviceWidth/1.1, alignment: .leading)
+                            .background(Color("FGColor"))
+                            .cornerRadius(20)
                     }
-                        .padding(22)
-                        .frame(width: deviceWidth/1.1, alignment: .leading)
-                        .background(Color("FGColor"))
-                        .cornerRadius(20)
                 }
             }
             .padding(.horizontal)
@@ -151,6 +154,7 @@ struct DiaryContentView_Previews: PreviewProvider {
                 )
             )
             .environmentObject(TodoListViewModel(testData: false))
+            .environmentObject(Store())
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
