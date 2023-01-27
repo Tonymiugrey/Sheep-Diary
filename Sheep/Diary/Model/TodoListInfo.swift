@@ -141,6 +141,62 @@ struct TodoListInfo: Codable {
     // Test data for SwiftUI preview
     mutating private func loadTestData() {
         self.todos = [
+            TodoItem(
+                month: 1,
+                day: 19,
+                feeling: "头好晕",
+                testResult: 1,
+                symptom: [false, true, true, true, true, false, true, false, false, false, false, false],
+                temperature: 38.9,
+                isHavingDrug: 1,
+                drug: "布洛芬",
+                others: "睡了一整天",
+                diaryWords: "还是没躲过……\n希望能快快好起来吧"
+            ),
+            TodoItem(
+                month: 1,
+                day: 20,
+                feeling: "身上开始痛了",
+                testResult: 1,
+                symptom: [false, true, true, true, true, false, true, false, false, false, false, false],
+                temperature: 38.9,
+                isHavingDrug: 1,
+                drug: "布洛芬",
+                others: "睡了一整天",
+                diaryWords: "还是没躲过……/n希望能快快好起来吧"
+            ),
+            TodoItem(
+                month: 1,
+                day: 21,
+                feeling: "退烧了",
+                testResult: 1,
+                symptom: [false, true, true, true, true, false, true, false, false, false, false, false],
+                temperature: 38.9,
+                isHavingDrug: 1,
+                drug: "布洛芬",
+                others: "睡了一整天",
+                diaryWords: "还是没躲过……/n希望能快快好起来吧"
+            ),
+            TodoItem(
+                month: 1,
+                day: 22,
+                feeling: "感觉好多了",
+                testResult: 1,
+                symptom: [false, true, true, true, true, false, true, false, false, false, false, false],
+                temperature: 38.9,
+                isHavingDrug: 1,
+                drug: "布洛芬",
+                others: "睡了一整天",
+                diaryWords: "还是没躲过……/n希望能快快好起来吧"
+            ),
+            TodoItem(
+                month: 1,
+                day: 23,
+                feeling: "终于转阴 还有点咳",
+                testResult: 0,
+                symptom: [false, false, false, true, false, false, false, false, false, false, false, false],
+                isHavingDrug: 0
+                )
         ]
     }
 }

@@ -55,18 +55,17 @@ struct NoSheepShare: View {
                 
                 VStack {
                     VStack {
-                        Text("我在“小羊日记”里戳戳了\(times)次小羊")
+                        Text("我在“小羊日记”里戳戳了\(times)次小羊\n镇定值为\(totalScore)分")
                             .font(.title2)
                             .fontWeight(.medium)
-                        Text("镇定值为\(totalScore)分")
-                            .font(.title2)
-                            .fontWeight(.medium)
+                            .multilineTextAlignment(.center)
                             .padding(.bottom, 2)
                         Text("但小羊还是很可爱的")
                             .font(.body)
                         Text("这里的“羊”仅仅指“阳”")
                             .font(.body)
                     }
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.bottom)
                     HStack {
                         Image("SharingNoteImg")

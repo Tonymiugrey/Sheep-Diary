@@ -154,7 +154,7 @@ struct AboutView: View {
 //                        Button {
 //
 //                        } label: {
-//                            Text("感谢支持！广告已移除！重启App后生效") // 本地化
+//                            Text("感谢支持！广告已移除！") // 本地化
 //                                .bold()
 //                        }
 //                        .disabled(true)

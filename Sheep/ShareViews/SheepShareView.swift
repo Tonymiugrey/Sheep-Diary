@@ -27,6 +27,7 @@ struct SheepShare: View {
                     .padding(.bottom, 4)
                 Label("该内容为用户自行分享，与“小羊日记”及其开发者无关。请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
                     .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .frame(width: deviceWidth/1.1, alignment: .leading)
             .foregroundColor(Color("SheepColor1"))
@@ -104,29 +105,26 @@ struct SheepShare: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 
                 VStack {
-                    VStack {
-                        Text("我在“小羊日记”里撸了\(times)次小羊")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                            .padding(.bottom, 1)
-                        Text("希望快快好起来！")
-                            .font(.title2)
-                            .fontWeight(.medium)
-                    }
-                    .padding(.bottom)
+                    Text("我在“小羊日记”里撸了\(times)次小羊\n希望快快好起来！")
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.bottom)
+                    
                     HStack {
                         Image("SharingNoteImg")
                             .resizable()
                             .scaledToFit()
-                            .frame(height: 180)
                             .opacity(0.9)
                             .padding(.horizontal, 15.0)
                         Text("可以用“小羊日记”App\n记录并分享感染期间的身体状况和应对方法哦")
                             .fontWeight(.medium)
                             .lineLimit(5)
-                            .frame(height: 180)
                             .multilineTextAlignment(.center)
                     }
+                    .frame(height: 180)
+                    
                 }
                 .padding(22)
                 .frame(width: deviceWidth/1.1)
@@ -202,6 +200,7 @@ struct SheepShareView: View {
 struct SheepShareView_Previews: PreviewProvider {
     static var previews: some View {
         SheepShareView(times: 3)
+            .previewDevice("iPhone SE (3rd generation)")
     }
 }
 

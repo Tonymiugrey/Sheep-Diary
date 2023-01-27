@@ -47,7 +47,8 @@ struct NoSheepView: View {
     
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State var wordDuration:CFloat = 0.0
-    var wordList = ["冷静呀","记得做好防护", "慢慢点击有助于放松哦", "别怕，会没事的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"] // TODO: 本地化
+    
+    var wordList = ["冷静呀","记得做好防护", "慢慢点击有助于放松哦", "别怕，会没事的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"]
 
     var body: some View {
         NavigationView {
@@ -96,7 +97,7 @@ struct NoSheepView: View {
                 .foregroundColor((Color("NoSheepColor1")))
                 .frame(width: deviceWidth, alignment: .leading)
                 .padding(.leading, deviceWidth/10)
-                .padding(.top, -deviceHeight/5)
+                .padding(.top, -deviceHeight/4.7)
                 
                 VStack {
                     Image("Sheep")
@@ -198,17 +199,15 @@ struct NoSheepView: View {
                         }
                 }
                 .padding(.top,deviceHeight/18)
-                .padding(.bottom,deviceHeight/13)
+                .padding(.bottom,deviceHeight/17)
                 
-                VStack {
+                VStack(spacing: 10) {
                     ZStack {
                         Text(LocalizedStringKey(wordList[Int(wordDuration)]))
                             .font(.title3)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("NoSheepColor2"))
-                            .padding(.bottom, 11.0)
                             .opacity(0.7)
-                        
                     }
                     .animation(.easeInOut)
                     
@@ -219,7 +218,7 @@ struct NoSheepView: View {
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 12)
-                                .frame(width: deviceWidth-160, height: 60)
+                                .frame(width: deviceWidth/1.5, height: 60)
                                 .foregroundColor(noticeColor)
                                 .opacity(0.9)
                                 .foregroundStyle(.thickMaterial)
@@ -234,16 +233,15 @@ struct NoSheepView: View {
                     .disabled(isShow)
                     
                     Text("戳羊\(total)次，镇定值\(totalScore)") // TODO: 本地化
-                        .font(.title2)
+                        .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("NoSheepColor2"))
-                        .padding(.top, 5.0)
                         .animation(.easeInOut(duration: 0.4), value: total)
                         .opacity(0.7)
                         .foregroundStyle(.thickMaterial)
                         
                 }
-                .padding(.bottom,-deviceHeight/5)
+                .padding(.bottom,-deviceHeight/3)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.linearGradient(colors: [Color("NoSheepBG1"),Color("NoSheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
@@ -256,5 +254,6 @@ struct NoSheepView_Previews: PreviewProvider {
     @State static var isShow = true
     static var previews: some View {
         NoSheepView(isShowBinding: $isShow)
+            .previewDevice("iPhone 14 Pro Max")
     }
 }

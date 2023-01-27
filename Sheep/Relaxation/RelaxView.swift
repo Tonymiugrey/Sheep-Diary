@@ -44,19 +44,24 @@ struct RelaxView: View {
                 })
 
             
-            Picker(selection: $pickerValue, label: Text("Picker")) {
+            Picker(selection: $pickerValue, label: Text("选择场景")) {
                 Text("别羊")
                     .tag(0)
                 Text("幻羊")
                     .tag(1)
                 Text("羊了")
                     .tag(2)
+
+            }
+            .onChange(of: pickerValue) { _ in
+                let impactLight = UIImpactFeedbackGenerator(style: .light)
+                impactLight.impactOccurred()
             }
             .pickerStyle(.segmented)
             .background(.thinMaterial)
             .cornerRadius(8)
             .padding(.horizontal)
-            .padding(.top, deviceHeight/1.3)
+            .padding(.top, deviceHeight/1.23)
         }
         .onAppear() {
             if pickerValue == 0 {
@@ -77,6 +82,7 @@ struct RelaxView: View {
 struct RelaxView_Previews: PreviewProvider {
     static var previews: some View {
         RelaxView()
+            .previewDevice("iPhone SE (3rd generation)")
             .environmentObject(TabBarColor())
     }
 }

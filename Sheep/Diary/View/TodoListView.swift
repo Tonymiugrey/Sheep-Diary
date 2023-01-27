@@ -53,7 +53,7 @@ struct TodoListView: View {
                                 .multilineTextAlignment(.center)
                                 .lineSpacing(5)
                                 .font(.title)
-                            Text("如果需要，您可以在就医时提供这些记录\n您也可以选择分享这段经历\n让更多人在羊了之后也能镇定地去面对")
+                            Text("如果需要，您可以在就医时提供这些记录\n您也可以选择分享这段经历\n让更多人在看到之后也能镇定地去面对")
                                 .font(.body)
                                 .multilineTextAlignment(.center)
                                 .padding(.top, 2.0)
@@ -127,7 +127,7 @@ struct TodoListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             TodoListView()
-                .environmentObject(TodoListViewModel(testData: false))
+                .environmentObject(TodoListViewModel(testData: true))
                 .environmentObject(Store())
                 .tint(Color("SheepColor"))
         }

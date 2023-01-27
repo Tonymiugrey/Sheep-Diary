@@ -52,16 +52,13 @@ struct FakeSheepShare: View {
             .padding(.bottom, 12)
             
             VStack {
-                VStack {
-                    Text("我在“小羊日记”里戳戳了\(times)次小羊")
-                        .font(.title2)
-                        .fontWeight(.medium)
-                        .padding(.bottom, 1)
-                    Text("应该只是幻觉啦~")
-                        .font(.title2)
-                        .fontWeight(.medium)
-                }
-                .padding(.bottom)
+                Text("我在“小羊日记”里戳戳了\(times)次小羊\n应该只是幻觉啦~")
+                    .font(.title2)
+                    .fontWeight(.medium)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.bottom)
+                
                 HStack {
                     Image("SharingNoteImg")
                         .resizable()

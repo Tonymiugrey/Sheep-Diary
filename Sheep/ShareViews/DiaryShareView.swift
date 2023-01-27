@@ -26,8 +26,9 @@ struct DiaryShareView: View {
                     .font(.title3)
                     .fontWeight(.medium)
                     .padding(.bottom, 2)
-                Label("该内容为用户自行分享，请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
+                Label("该内容为用户自行分享，与“小羊日记”及其开发者无关。请谨慎辨别内容真伪！", systemImage: "exclamationmark.triangle.fill")
                     .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .foregroundColor((Color("SheepColor1")))
             .frame(width: deviceWidth/1.1, alignment: .leading)
@@ -76,7 +77,8 @@ struct DiaryShareView: View {
                         .fontWeight(.medium)
                 }
                 
-                Label("症状与措施因人而异，仅可做为参考。",  systemImage: "exclamationmark.triangle.fill")         .font(.headline)
+                Label("症状与应对措施因人而异，以上内容仅做为参考。请结合自身情况谨慎判断，或遵循医嘱。",  systemImage: "exclamationmark.triangle.fill")         .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
                     .padding(.top, 10)
                 
             }
@@ -92,6 +94,7 @@ struct DiaryShareView: View {
                         .font(.title2)
                     Text(todoItem.diaryWords)
                         .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
                         .padding(.leading, 10)
                 }
                 .padding(22)

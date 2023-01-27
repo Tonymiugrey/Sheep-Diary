@@ -131,17 +131,18 @@ struct ContentView: View {
             NavigationView {
                 TodoListView()
                     .showTabBar()
-                    .environmentObject(TodoListViewModel())
+                    .environmentObject(TodoListViewModel(testData: false))
                     .environmentObject(Store())
+            }   
+            .navigationViewStyle(.stack)
+            .tabItem {
+                //修改未选择的项的颜色
+                Label("小羊日记", systemImage: "note.text")
             }
-                .tabItem {
-                    //修改未选择的项的颜色
-                    Label("小羊日记", systemImage: "note.text")
-                }
-                .onAppear() {
-                    tabBarColor.color = Color("SheepColor")
-                }
-                .tag(0)
+            .onAppear() {
+                tabBarColor.color = Color("SheepColor")
+            }
+            .tag(0)
             RelaxView()
                 .environmentObject(tabBarColor)
                 .tint(Color("SheepColor"))
@@ -169,6 +170,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewDevice("iPhone 14 Pro Max")
             .preferredColorScheme(.light)
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(TabBarColor())

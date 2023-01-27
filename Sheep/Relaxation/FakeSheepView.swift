@@ -89,7 +89,7 @@ struct FakeSheepView: View {
                         .animation(.easeInOut(duration: 0.2))
                         .onTapGesture {
                             if isMoving == false {
-                                self.generator.notificationOccurred(.warning)
+                                self.generator.notificationOccurred(.error)
                                 total += once
                                 RandomRate()
                                 withAnimation {
@@ -97,7 +97,7 @@ struct FakeSheepView: View {
                                     isMoving.toggle()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                                         isTapped.toggle()
-                                        sheepScale = CGFloat.random(in: (0.4)...(1.1))
+                                        sheepScale = CGFloat.random(in: (0.4)...(0.9))
                                     }
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         isMoving.toggle()

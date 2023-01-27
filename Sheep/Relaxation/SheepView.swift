@@ -24,7 +24,8 @@ struct SheepView: View {
     
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State var wordDuration:CFloat = 0.0
-    var wordList = ["冷静呀", "慢慢点击有助于放松哦", "可以去小羊日记里写一写感受", "如果累了就休息一下吧", "别怕，会没事的", "你可以的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"] // TODO: 本地化
+    
+    var wordList = ["冷静呀", "慢慢点击有助于放松哦", "可以去小羊日记里写一写感受", "如果累了就休息一下吧", "别怕，会没事的", "你可以的", "不能慌乱呀", "试着做个深呼吸", "保持平和的心情"]
     
     @State var reviewHasShown = false
     func RandomRate(input: CGFloat) {
