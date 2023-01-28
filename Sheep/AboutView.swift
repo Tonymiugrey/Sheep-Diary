@@ -132,14 +132,18 @@ struct AboutView: View {
     var body: some View {
         NavigationView {
             List {
-                Section("免责申明与注意事项") {
-                    Text("此App带有分享功能，本意为用于互相帮助。由于分享内容较为严肃，请勿传播虚假信息；用户通过此App传播的信息仅代表用户立场，与“小羊日记”及其开发者无关；症状与应对措施因人而异，由该应用分享的内容仅做为参考。请结合自身情况，谨慎判断或遵循医嘱。")
+                Section("免责申明") {
+                    Text("此App带有分享功能，本意为用于互相帮助。由于分享内容较为严肃，请勿传播虚假信息；用户通过此App传播的信息仅代表用户立场，与“小羊日记”及其开发者无关。")
+                }
+                
+                Section("安全与注意事项") {
+                    Text("症状与应对措施因人而异，由该应用分享的内容仅做为参考。请结合自身情况，谨慎判断或遵循医嘱。")
                 }
                 
                 Section("广告与隐私") {
                     Text("该应用包含 Google AdMob 广告框架，会收集部分信息用于提供个性化广告服务。这些信息由 Google 收集，我不会收集或获得任何关于用户的个人信息。")
                     Button {
-                        UIApplication.shared.open(URL(string:"https://doc-hosting.flycricket.io/bie-yang-privacy-policy/c5846993-4a22-4a17-9f99-ab642f3c170b/privacy")!)
+                        UIApplication.shared.open(URL(string:"https://sheep-diary.miuGrey.com.cn/#privacy")!)
                     } label: {
                         Text("隐私政策")
                     }
