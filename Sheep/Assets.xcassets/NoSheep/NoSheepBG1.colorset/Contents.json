@@ -24,9 +24,9 @@
         "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.592",
-          "green" : "0.667",
-          "red" : "0.357"
+          "blue" : "0x96",
+          "green" : "0xAA",
+          "red" : "0x5B"
         }
       },
       "display-gamut" : "sRGB",
