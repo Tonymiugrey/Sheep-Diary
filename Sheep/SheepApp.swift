@@ -22,8 +22,16 @@ struct SheepApp: App {
     private func requestIDFA() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
-                print("IDFA STATUS: \(status.rawValue)")
-                showConsentInformation()
+                print("IDFA STATUS: \(status)")
+                switch status {
+                case .denied, .restricted, .authorized:break
+                case .notDetermined:
+                    #if targetEnvironment(simulator)
+                    #else
+                    showConsentInformation()
+                    #endif
+                @unknown default: break
+                }
             }
       }
     }

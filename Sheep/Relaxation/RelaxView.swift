@@ -9,8 +9,11 @@ import SwiftUI
 
 struct RelaxView: View {
     @EnvironmentObject var tabBarColor: TabBarColor
+    @EnvironmentObject var store: Store
     @State var pickerValue = 0
     @State var isShow = true
+    @State var showAd = false
+    @State var switchCount = 0.0
     var deviceHeight = UIScreen.main.bounds.height
     
     var body: some View {
@@ -24,6 +27,7 @@ struct RelaxView: View {
                 })
             
             FakeSheepView()
+                .environmentObject(store)
                 .opacity(pickerValue == 1 ? 1.0 : 0.0)
                 .onChange(of: pickerValue, perform: { value in
                     if value == 1 {
@@ -32,6 +36,7 @@ struct RelaxView: View {
                 })
             
             NoSheepView(isShowBinding: $isShow)
+                .environmentObject(store)
                 .opacity(pickerValue == 0 ? 1.0 : 0.0)
                 .onChange(of: pickerValue, perform: { value in
                     if value != 0 {
@@ -56,6 +61,14 @@ struct RelaxView: View {
             .onChange(of: pickerValue) { _ in
                 let impactLight = UIImpactFeedbackGenerator(style: .light)
                 impactLight.impactOccurred()
+                switchCount += 1
+                if switchCount.truncatingRemainder(dividingBy: 4) == 0 {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                        if store.purchasedProd.count == 0 {
+                            showAd.toggle()
+                        }
+                    }
+                }
             }
             .pickerStyle(.segmented)
             .background(.thinMaterial)
@@ -63,6 +76,7 @@ struct RelaxView: View {
             .padding(.horizontal)
             .padding(.top, deviceHeight/1.23)
         }
+        .presentInterstitialAd(isPresented: $showAd, adUnitId: "ca-app-pub-6106285619802028/6409939605")
         .onAppear() {
             if pickerValue == 0 {
                 isShow = true
@@ -84,5 +98,6 @@ struct RelaxView_Previews: PreviewProvider {
         RelaxView()
             .previewDevice("iPhone SE (3rd generation)")
             .environmentObject(TabBarColor())
+            .environmentObject(Store())
     }
 }

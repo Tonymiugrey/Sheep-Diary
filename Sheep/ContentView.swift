@@ -145,6 +145,7 @@ struct ContentView: View {
             .tag(0)
             RelaxView()
                 .environmentObject(tabBarColor)
+                .environmentObject(Store())
                 .tint(Color("SheepColor"))
                 .tabItem {
                     Label("放松", systemImage: "face.smiling") // TODO: 本地化

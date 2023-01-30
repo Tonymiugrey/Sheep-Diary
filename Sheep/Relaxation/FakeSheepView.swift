@@ -9,18 +9,21 @@ import SwiftUI
 import StoreKit
 
 struct FakeSheepView: View {
+    @EnvironmentObject var store: Store
+    
     private var title:LocalizedStringKey = "幻羊"
     private var subTitle:LocalizedStringKey = "应该只是幻觉啦~"
-    @State private var total = 0
-    @State private var once = 1
+    @State private var total = 0.0
+    @State private var once = 1.0
     @State private var isTapped = false
     @State private var isMoving = false
-    @State var isShow = true
     @State private var sheepScale = CGFloat.random(in: (0.4)...(1.3))
     private var deviceHeight = UIScreen.main.bounds.height
     private var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
     let generator = UINotificationFeedbackGenerator()
+    
+    @State var showAd = false
     
     @State var reviewHasShown = false
     func RandomRate() {
@@ -59,7 +62,7 @@ struct FakeSheepView: View {
                             }
                             .fullScreenCover(isPresented: $showSharingView)
                             {
-                                ShareContentView(viewToShot: FakeSheepShare(times: total)
+                                ShareContentView(viewToShot: FakeSheepShare(times: Int(total))
                                     .environmentObject(TodoListViewModel(testData: false)), title: "幻羊 - 分享自 小羊日记App")
                                 .foregroundColor(Color("TextColor"))
                             }
@@ -103,12 +106,17 @@ struct FakeSheepView: View {
                                         isMoving.toggle()
                                     }
                                 }
+                                if total.truncatingRemainder(dividingBy: 150) == 0 {
+                                    if store.purchasedProd.count == 0 {
+                                        showAd.toggle()
+                                    }
+                                }
                             }
                             
                         }
                 }
                 
-                Text("戳羊\(total)次")
+                Text("戳羊\(Int(total))次")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("FakeSheepColor2"))
@@ -121,12 +129,7 @@ struct FakeSheepView: View {
                     .background(.linearGradient(colors: [Color("FakeSheepBG1"),Color("FakeSheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear() {
-            isShow = true
-        }
-        .onDisappear() {
-            isShow = false
-        }
+        .presentInterstitialAd(isPresented: $showAd, adUnitId: "ca-app-pub-6106285619802028/6409939605")
     }
     
 }
@@ -134,6 +137,7 @@ struct FakeSheepView: View {
 struct FakeSheepView_Previews: PreviewProvider {
     static var previews: some View {
         FakeSheepView()
+            .environmentObject(Store())
             //.previewDevice("iPad Pro (12.9-inch) (6th generation)")
     }
 }

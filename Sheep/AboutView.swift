@@ -36,7 +36,7 @@ extension Bundle {
 func requestReviewManually() {
     // Note: Replace the XXXXXXXXXX below with the App Store ID for your app
     // You can find the App Store ID in your app's product URL
-    guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/idXXXXXXXXXX?action=write-review")
+    guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id1666275886?action=write-review")
     else { fatalError("Expected a valid URL") }
     UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
 }
@@ -195,6 +195,7 @@ struct AboutView: View {
                 Section {
                     Text("\(Bundle.main.appName) \(Bundle.main.appVersionShort) Build \(Bundle.main.appVersionLong)")
                     Text("© miuGrey 2023")
+                    Text("Thanks to jiujiu & miure")
                 }
                 
             }

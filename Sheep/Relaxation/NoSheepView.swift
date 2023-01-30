@@ -9,11 +9,13 @@ import SwiftUI
 import StoreKit
 
 struct NoSheepView: View {
+    @EnvironmentObject var store: Store
+    
     var title:LocalizedStringKey = "别羊"
     var subTitle1:LocalizedStringKey = "但是小羊还是很可爱的！"
     var subTitle2:LocalizedStringKey = "这里的“羊”仅仅指“阳”"
-    @State var total = 0
-    @State var once = 1
+    @State var total = 0.0.truncatingRemainder(dividingBy: 4)
+    @State var once = 1.0
     @State var score = 0
     @State var totalScore = 0
     @State var isTapped = false
@@ -23,7 +25,7 @@ struct NoSheepView: View {
     @State var isShow = true
     @State var noticeColor = Color.green
     @State var noticeTextColor = Color("GreenTextColor")
-    @State var sheepStatus:LocalizedStringKey = "慢慢戳羊，保持距离！"  // TODO: 本地化
+    @State var sheepStatus:LocalizedStringKey = "慢慢戳羊，保持距离！"
     var deviceHeight = UIScreen.main.bounds.height
     var deviceWidth = UIScreen.main.bounds.width
     @State var showSharingView = false
@@ -35,7 +37,7 @@ struct NoSheepView: View {
     
     @State var reviewHasShown = false
     func RandomRate() {
-        if total == 150 && reviewHasShown == false {
+        if total == 120 && reviewHasShown == false {
             print("Please Rate")
             reviewHasShown = true
             isShow = false
@@ -44,6 +46,8 @@ struct NoSheepView: View {
             }
         }
     }
+    
+    @State var showAd = false
     
     private let timer = Timer.publish(every: 0.05, on: .main, in: .common).autoconnect()
     @State var wordDuration:CFloat = 0.0
@@ -78,7 +82,7 @@ struct NoSheepView: View {
                                 }
                                 .fullScreenCover(isPresented: $showSharingView)
                                 {
-                                    ShareContentView(viewToShot: NoSheepShare(times: total, totalScore: totalScore)
+                                    ShareContentView(viewToShot: NoSheepShare(times: Int(total), totalScore: totalScore)
                                         .environmentObject(TodoListViewModel(testData: false)), title: "别羊🙏🏻 - 分享自 小羊日记App")
                                     .foregroundColor(Color("TextColor"))
                                 }
@@ -194,7 +198,13 @@ struct NoSheepView: View {
                                         self.isTapped.toggle()
                                     }
                                 }
-                                RandomRate()
+                                if total.truncatingRemainder(dividingBy: 150) == 0 {
+                                    if store.purchasedProd.count == 0 {
+                                        showAd.toggle()
+                                        isShow = false
+                                    }
+                                }
+                                //RandomRate()
                             }
                         }
                 }
@@ -217,22 +227,22 @@ struct NoSheepView: View {
                         impactLight.impactOccurred()
                     } label: {
                         ZStack {
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: deviceWidth/1.5, height: 60)
-                                .foregroundColor(noticeColor)
-                                .opacity(0.9)
-                                .foregroundStyle(.thickMaterial)
-                                .animation(.easeInOut(duration: 0.2), value: noticeColor)
                             Text(sheepStatus)
                                 .font(.title3)
                                 .foregroundColor(noticeTextColor)
                                 .fontWeight(.medium)
                                 .animation(.easeInOut(duration: 0.1), value: sheepStatus)
+                                .padding(.horizontal, 40)
+                                .frame(height: 60)
+                                .background(noticeColor)
+                                .opacity(0.9)
+                                .cornerRadius(12)
+                                .animation(.spring(), value: noticeColor)
                         }
                     }
                     .disabled(isShow)
                     
-                    Text("戳羊\(total)次，镇定值\(totalScore)") // TODO: 本地化
+                    Text("戳羊\(Int(total))次，镇定值\(totalScore)") // TODO: 本地化
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("NoSheepColor2"))
@@ -247,6 +257,7 @@ struct NoSheepView: View {
             .background(.linearGradient(colors: [Color("NoSheepBG1"),Color("NoSheepBG2")], startPoint: .topTrailing, endPoint: .bottomLeading))
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .presentInterstitialAd(isPresented: $showAd, adUnitId: "ca-app-pub-6106285619802028/6409939605")
     }
 }
 
@@ -254,6 +265,7 @@ struct NoSheepView_Previews: PreviewProvider {
     @State static var isShow = true
     static var previews: some View {
         NoSheepView(isShowBinding: $isShow)
+            .environmentObject(Store())
             .previewDevice("iPhone 14 Pro Max")
     }
 }
