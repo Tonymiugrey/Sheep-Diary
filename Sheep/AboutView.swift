@@ -143,7 +143,7 @@ struct AboutView: View {
                 Section("广告与隐私") {
                     Text("该应用包含 Google AdMob 广告框架，会收集部分信息用于提供个性化广告服务。这些信息由 Google 收集，我不会收集或获得任何关于用户的个人信息。")
                     Button {
-                        UIApplication.shared.open(URL(string:"https://sheep-diary.miuGrey.com.cn/#privacy")!)
+                        UIApplication.shared.open(URL(string:"http://sheep-diary.miuGrey.com.cn/#privacy")!)
                     } label: {
                         Text("隐私政策")
                     }

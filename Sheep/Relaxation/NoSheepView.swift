@@ -242,7 +242,7 @@ struct NoSheepView: View {
                     }
                     .disabled(isShow)
                     
-                    Text("戳羊\(Int(total))次，镇定值\(totalScore)") // TODO: 本地化
+                    Text("戳羊\(Int(total))次，镇定值\(totalScore)")
                         .font(.title3)
                         .fontWeight(.semibold)
                         .foregroundColor(Color("NoSheepColor2"))

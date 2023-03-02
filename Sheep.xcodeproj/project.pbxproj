@@ -10,6 +10,7 @@
 		2BF359314F7B720BAA22E79D /* libPods-Sheep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B762D056DB33E36E4DD237DE /* libPods-Sheep.a */; };
 		410ECC1829649C7800B511D3 /* DiaryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410ECC1729649C7800B511D3 /* DiaryContentView.swift */; };
 		412EC85F29827372001BE34A /* RelaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412EC85E29827372001BE34A /* RelaxView.swift */; };
+		413CD14B29B0B32400403F56 /* CountSheepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 413CD14A29B0B32400403F56 /* CountSheepView.swift */; };
 		41400A60296002B500BA0948 /* SheepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41400A5F296002B500BA0948 /* SheepApp.swift */; };
 		41434A0929632AB300ADAC31 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41434A0129632AB300ADAC31 /* TodoListViewModel.swift */; };
 		41434A0A29632AB300ADAC31 /* TodoListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41434A0329632AB300ADAC31 /* TodoListInfo.swift */; };
@@ -26,6 +27,12 @@
 		4184A4C629882D8400938947 /* InterstitialAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184A4C429882D8400938947 /* InterstitialAd.swift */; };
 		4184A4C729882D8400938947 /* FullScreenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184A4C529882D8400938947 /* FullScreenModifier.swift */; };
 		418A0E7F297588AE00F02A3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 418A0E81297588AE00F02A3A /* Localizable.strings */; };
+		41A9203D29B0855E00AB6507 /* Text+ViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203629B0855E00AB6507 /* Text+ViewModifier.swift */; };
+		41A9203E29B0855E00AB6507 /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203729B0855E00AB6507 /* PrimaryButtonStyle.swift */; };
+		41A9203F29B0855E00AB6507 /* NewFeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203829B0855E00AB6507 /* NewFeaturesView.swift */; };
+		41A9204129B0855E00AB6507 /* NewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203A29B0855E00AB6507 /* NewFeature.swift */; };
+		41A9204229B0855E00AB6507 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203B29B0855E00AB6507 /* View+Ext.swift */; };
+		41A9204329B0855E00AB6507 /* NewFeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A9203C29B0855E00AB6507 /* NewFeatureRow.swift */; };
 		41AE49FF29746F8F00A206C5 /* SymptonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AE49FE29746F8F00A206C5 /* SymptonView.swift */; };
 		41AE4A022975441E00A206C5 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = 41AE4A012975441E00A206C5 /* WrappingStack */; };
 		41B221AE295DB6B400B55487 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B221AD295DB6B400B55487 /* ContentView.swift */; };
@@ -43,6 +50,7 @@
 		41C5FAAF2976F741004AAA53 /* DiaryShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */; };
 		41C5FAB12976FDD9004AAA53 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */; };
 		41C81B8E29799EF700A19267 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C81B8D29799EF700A19267 /* AboutView.swift */; };
+		41DB33E429B0F428000EDB27 /* CountSheepShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DB33E329B0F428000EDB27 /* CountSheepShareView.swift */; };
 		41DC95D12967187A00E6499D /* ShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DC95D02967187A00E6499D /* ShareContentView.swift */; };
 		41FF6D76297EF24500607B74 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41FF6D75297EF24500607B74 /* IAPManager.swift */; };
 		41FF6D82297F8D2E00607B74 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41FF6D81297F8D2E00607B74 /* Products.plist */; };
@@ -70,6 +78,7 @@
 		410ECC1729649C7800B511D3 /* DiaryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryContentView.swift; sourceTree = "<group>"; };
 		4121B5B92965430D00518BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		412EC85E29827372001BE34A /* RelaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelaxView.swift; sourceTree = "<group>"; };
+		413CD14A29B0B32400403F56 /* CountSheepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountSheepView.swift; sourceTree = "<group>"; };
 		41400A5F296002B500BA0948 /* SheepApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheepApp.swift; sourceTree = "<group>"; };
 		41400A61296002E400BA0948 /* Sheep.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Sheep.entitlements; sourceTree = "<group>"; };
 		41434A0129632AB300ADAC31 /* TodoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +97,12 @@
 		418A0E80297588AE00F02A3A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		418A0E82297588B000F02A3A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		418A0E8329759E0A00F02A3A /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		41A9203629B0855E00AB6507 /* Text+ViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Text+ViewModifier.swift"; sourceTree = "<group>"; };
+		41A9203729B0855E00AB6507 /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		41A9203829B0855E00AB6507 /* NewFeaturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeaturesView.swift; sourceTree = "<group>"; };
+		41A9203A29B0855E00AB6507 /* NewFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeature.swift; sourceTree = "<group>"; };
+		41A9203B29B0855E00AB6507 /* View+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		41A9203C29B0855E00AB6507 /* NewFeatureRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureRow.swift; sourceTree = "<group>"; };
 		41AE49FE29746F8F00A206C5 /* SymptonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptonView.swift; sourceTree = "<group>"; };
 		41B221A8295DB6B400B55487 /* Sheep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sheep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B221AD295DB6B400B55487 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +122,7 @@
 		41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		41C81B8C2979879800A19267 /* UpdateLog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UpdateLog.md; sourceTree = "<group>"; };
 		41C81B8D29799EF700A19267 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		41DB33E329B0F428000EDB27 /* CountSheepShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountSheepShareView.swift; sourceTree = "<group>"; };
 		41DC95D02967187A00E6499D /* ShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareContentView.swift; sourceTree = "<group>"; };
 		41FF6D75297EF24500607B74 /* IAPManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		41FF6D81297F8D2E00607B74 /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
@@ -196,6 +212,7 @@
 				41B221DB295DF8B300B55487 /* NoSheepView.swift */,
 				412EC85E29827372001BE34A /* RelaxView.swift */,
 				41B221DF295E82FD00B55487 /* SheepView.swift */,
+				413CD14A29B0B32400403F56 /* CountSheepView.swift */,
 				41B221DD295DF91800B55487 /* FakeSheepView.swift */,
 			);
 			path = Relaxation;
@@ -208,6 +225,7 @@
 				416EE10F296B2FA4007C9CB7 /* NoSheepShareView.swift */,
 				416EE111296B2FDF007C9CB7 /* SheepShareView.swift */,
 				416EE113296B2FF0007C9CB7 /* FakeSheepShareView.swift */,
+				41DB33E329B0F428000EDB27 /* CountSheepShareView.swift */,
 				41C5FAAE2976F741004AAA53 /* DiaryShareView.swift */,
 			);
 			path = ShareViews;
@@ -223,6 +241,19 @@
 				417597CE2965BDA500A60844 /* BannerAd.swift */,
 			);
 			path = Ads;
+			sourceTree = "<group>";
+		};
+		41A9203529B0855E00AB6507 /* NewFeatureViews */ = {
+			isa = PBXGroup;
+			children = (
+				41A9203629B0855E00AB6507 /* Text+ViewModifier.swift */,
+				41A9203729B0855E00AB6507 /* PrimaryButtonStyle.swift */,
+				41A9203829B0855E00AB6507 /* NewFeaturesView.swift */,
+				41A9203A29B0855E00AB6507 /* NewFeature.swift */,
+				41A9203B29B0855E00AB6507 /* View+Ext.swift */,
+				41A9203C29B0855E00AB6507 /* NewFeatureRow.swift */,
+			);
+			path = NewFeatureViews;
 			sourceTree = "<group>";
 		};
 		41B2219F295DB6B400B55487 = {
@@ -250,6 +281,7 @@
 		41B221AA295DB6B400B55487 /* Sheep */ = {
 			isa = PBXGroup;
 			children = (
+				41A9203529B0855E00AB6507 /* NewFeatureViews */,
 				41E737FB297AC4AF008A3217 /* IAP */,
 				41C5FAB02976FDD9004AAA53 /* Launch Screen.storyboard */,
 				416EE10E296B2F80007C9CB7 /* ShareViews */,
@@ -488,10 +520,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A9204229B0855E00AB6507 /* View+Ext.swift in Sources */,
+				41A9203E29B0855E00AB6507 /* PrimaryButtonStyle.swift in Sources */,
 				41FF6D76297EF24500607B74 /* IAPManager.swift in Sources */,
 				41C5FAAF2976F741004AAA53 /* DiaryShareView.swift in Sources */,
+				41DB33E429B0F428000EDB27 /* CountSheepShareView.swift in Sources */,
 				41434A0929632AB300ADAC31 /* TodoListViewModel.swift in Sources */,
 				41AE49FF29746F8F00A206C5 /* SymptonView.swift in Sources */,
+				41A9203F29B0855E00AB6507 /* NewFeaturesView.swift in Sources */,
+				41A9204329B0855E00AB6507 /* NewFeatureRow.swift in Sources */,
 				41434A0E29632AB300ADAC31 /* ListItemView.swift in Sources */,
 				4184A4C729882D8400938947 /* FullScreenModifier.swift in Sources */,
 				416EE110296B2FA4007C9CB7 /* NoSheepShareView.swift in Sources */,
@@ -509,10 +546,13 @@
 				417597CF2965BDA500A60844 /* BannerAd.swift in Sources */,
 				41DC95D12967187A00E6499D /* ShareContentView.swift in Sources */,
 				41B221DE295DF91800B55487 /* FakeSheepView.swift in Sources */,
+				41A9203D29B0855E00AB6507 /* Text+ViewModifier.swift in Sources */,
+				41A9204129B0855E00AB6507 /* NewFeature.swift in Sources */,
 				41B221AE295DB6B400B55487 /* ContentView.swift in Sources */,
 				41B221E0295E82FD00B55487 /* SheepView.swift in Sources */,
 				41B221DC295DF8B300B55487 /* NoSheepView.swift in Sources */,
 				41B221B8295DB6B600B55487 /* Sheep.xcdatamodeld in Sources */,
+				413CD14B29B0B32400403F56 /* CountSheepView.swift in Sources */,
 				412EC85F29827372001BE34A /* RelaxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,7 +751,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -756,7 +796,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.miuGrey.Sheep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

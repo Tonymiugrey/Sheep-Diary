@@ -105,13 +105,28 @@ extension View {
 
 class TabBarColor: ObservableObject {
     @Published var color: Color = Color("SheepColor")
+    @Published var buttonColor: Color = Color("NoSheepColor2")
 }
 
 struct ContentView: View {
     @EnvironmentObject var tabBarColor: TabBarColor
     @State var reviewHasShown = false
-    
+    @State var showNewFeature = false
     @StateObject var store: Store = Store()
+    
+    func checkForUpdate() {
+        let version = Bundle.main.appVersionShort
+            let savedVersion = UserDefaults.standard.string(forKey: "savedVersion")
+
+            if savedVersion == version {
+                print("App is up to date!")
+            } else {
+                // Trigger to show the "Whats new" screen
+                showNewFeature = true
+                // Save the current version to UserDefaults
+                UserDefaults.standard.set(version, forKey: "savedVersion")
+            }
+        }
     
     func RandomRate(input: CGFloat) {
         //let luckyNum = input.truncatingRemainder(dividingBy: 7)
@@ -148,7 +163,8 @@ struct ContentView: View {
                 .environmentObject(Store())
                 .tint(Color("SheepColor"))
                 .tabItem {
-                    Label("放松", systemImage: "face.smiling") // TODO: 本地化
+                    
+                    Label("放松", systemImage: "face.smiling")
                 }
                 .tag(1)
             AboutView()
@@ -164,19 +180,26 @@ struct ContentView: View {
         
         }
         .tint(tabBarColor.color)
-        //.animation(.easeInOut, value: color)
+        .onAppear() {
+            checkForUpdate()
+        }
+        .sheet(isPresented: $showNewFeature) {
+            NewFeaturesView()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .previewDevice("iPhone 14 Pro Max")
-            .preferredColorScheme(.light)
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(TabBarColor())
+        ContentView()
+            .previewDevice("iPhone SE (3rd generation)")
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .environmentObject(TabBarColor())
         ContentView().previewDevice("iPad Air (5th generation)")
-            .preferredColorScheme(.light)
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)            .environmentObject(TabBarColor())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .environmentObject(TabBarColor())
     }
 }

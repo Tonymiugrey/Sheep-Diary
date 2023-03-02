@@ -17,6 +17,7 @@ struct SheepApp: App {
     private func initGoogleMobileAds() {
         GADMobileAds.sharedInstance()
             .start(completionHandler: nil)
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "b1bd35cc53543fad76a0d2966eb7fcab" ]
     }
     
     private func requestIDFA() {
