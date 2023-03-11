@@ -172,7 +172,7 @@ struct RelaxView: View {
             
             
         }
-        .presentInterstitialAd(isPresented: $showAd, adUnitId: "ca-app-pub-6106285619802028/6409939605")
+        .presentInterstitialAd(isPresented: $showAd, adUnitId: "ca-app-pub-3240610254201173/8382439748")
         .onAppear() {
             if pickerValue == 0 {
                 isShow = true

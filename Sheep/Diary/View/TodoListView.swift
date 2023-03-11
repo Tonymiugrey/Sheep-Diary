@@ -84,7 +84,7 @@ struct TodoListView: View {
                         }
                         .searchable(text: searchBinding)
                         if store.purchasedProd.count == 0 {
-                            SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-6106285619802028/5734478761")
+                            SwiftUIBannerAd(adPosition: .bottom, adUnitId: "ca-app-pub-3240610254201173/1343771566")
                         }
                     }
                 }
@@ -93,16 +93,6 @@ struct TodoListView: View {
         .navigationTitle("小羊日记")
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                if viewModel.todoListIsEmpty == false {
-//                    Button {
-//                        self.showSharingView = true
-//                    } label: {
-//                        Image(systemName: "square.and.arrow.up")
-//                    }
-//                }
-//            }
-
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     self.showEditingPage = true

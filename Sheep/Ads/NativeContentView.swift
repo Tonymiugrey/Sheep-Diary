@@ -97,7 +97,7 @@ private class NativeAdViewModel: NSObject, ObservableObject, GADNativeAdLoaderDe
   func refreshAd() {
     adLoader = GADAdLoader(
       adUnitID:
-        "ca-app-pub-6106285619802028/6285923353",
+        "ca-app-pub-3240610254201173/5568574141",
       rootViewController: nil,
       adTypes: [.native], options: nil)
     adLoader.delegate = self

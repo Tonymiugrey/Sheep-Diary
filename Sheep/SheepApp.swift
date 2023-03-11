@@ -9,20 +9,24 @@ import SwiftUI
 import AppTrackingTransparency
 import GoogleMobileAds
 import UserMessagingPlatform
+import AdSupport
 
 @main
 struct SheepApp: App {
     let persistenceController = PersistenceController.shared
     
     private func initGoogleMobileAds() {
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "a52111efdf442822bcd6d4847f5259e9" ]
         GADMobileAds.sharedInstance()
             .start(completionHandler: nil)
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "b1bd35cc53543fad76a0d2966eb7fcab" ]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ "a52111efdf442822bcd6d4847f5259e9" ]
     }
     
     private func requestIDFA() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             ATTrackingManager.requestTrackingAuthorization { (status) in
+                print("ad id:")
+                print(ASIdentifierManager.shared().advertisingIdentifier)
                 print("IDFA STATUS: \(status)")
                 switch status {
                 case .denied, .restricted, .authorized:break
